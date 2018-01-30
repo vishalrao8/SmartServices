@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.visha.smarttechnician.MapsActivity" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/navigateButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/common_google_signin_btn_text_dark_focused"
+            android:onClick="onNavigationClicked"
+            android:text="@string/navigate"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:translationY="150dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

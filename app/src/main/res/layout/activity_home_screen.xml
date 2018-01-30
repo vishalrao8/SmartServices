@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.visha.smarttechnician.HomeScreen">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/requestButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/common_google_signin_btn_text_dark_focused"
+            android:onClick="requestButton"
+            android:text="@string/request_a_technician"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:translationY="-60dp"/>
+
+        <TextView
+            android:id="@+id/orTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/or"
+            android:textAlignment="center"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/technicianButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+            android:onClick="technicianButton"
+            android:text="@string/serve_as_technician"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:alpha=".3"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/background" />
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">SmartTechnician</string>
+    <string name="request_a_technician">Request a technician</string>
+    <string name="or">OR</string>
+    <string name="serve_as_technician">Serve as technician</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_users_map">Map</string>
+    <string name="navigate">Navigate</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="continue_button">Continue</string>
+    <string name="cancel_request">Cancel request</string>
+    <string name="category">Category</string>
+    <string name="history">We are eagerly waiting to serve you for the first time</string>
+    <string name="active_requests">No active requests</string>
+    <string name="signout">SignOut</string>
+    <string name="electronics">Electronics</string>
+    <string name="plumber">Plumber</string>
+    <string name="carpenter">Carpenter</string>
+    <string name="painter">Painter</string>
+    <string name="portable_devices">Portable Devices</string>
+</resources>
