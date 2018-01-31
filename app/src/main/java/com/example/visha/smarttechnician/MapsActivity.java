@@ -159,7 +159,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         NavigationUI();
         mDatabaseReference.child("TechnicianAccepted").child(requestedUserId).child(userId).setValue(category);
         technicianAccepted=true;
-        updateMap(lastKnownLocation);
 
 
     }
@@ -387,6 +386,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
+        mMap.getUiSettings().setMapToolbarEnabled(false);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
 
@@ -460,13 +460,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             updateMap(lastKnownLocation);
 
         }
+        else if(mMap!=null)
+            updateMap(lastKnownLocation);
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        geoQuery.removeAllListeners();
+        if(geoQuery!=null)
+            geoQuery.removeAllListeners();
 
     }
 

@@ -53,13 +53,12 @@ public class HomeScreen extends AppCompatActivity {
 
                         user=true;
                         comingBackUserUI((String) dataSnapshot.child("name").getValue());
-                        finish();
+
                     }
                     else{
 
                         user=false;
                         comingBackTechnicianUI((String)dataSnapshot.child("name").getValue(),(String)dataSnapshot.child("category").getValue());
-                        finish();
 
                     }
                     progressDialog.dismiss();
@@ -78,31 +77,6 @@ public class HomeScreen extends AppCompatActivity {
 
             }
         });
-        /*databaseReference.child("Technicians").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-
-                    progressDialog.dismiss();
-                    comingBackTechnicianUI((String)dataSnapshot.child("name").getValue());
-                    finish();
-
-                }
-                else{
-
-                    progressDialog.dismiss();
-                    AuthUI.getInstance().signOut(HomeScreen.this);
-                    buttonActive=true;
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });*/
-
     }
 
     public void newTechnicianUI(){
@@ -160,7 +134,6 @@ public class HomeScreen extends AppCompatActivity {
                         else {
 
                             comingBackUserUI((String) dataSnapshot.child("name").getValue());
-                            finish();
 
                         }
 
@@ -177,7 +150,6 @@ public class HomeScreen extends AppCompatActivity {
                         else{
 
                             comingBackTechnicianUI((String) dataSnapshot.child("name").getValue(), (String) dataSnapshot.child("category").getValue());
-                            finish();
 
                         }
 

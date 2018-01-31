@@ -6,7 +6,6 @@ import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
@@ -26,7 +25,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import static com.example.visha.smarttechnician.FragmentOne.buttonShowed;
 import static com.example.visha.smarttechnician.FragmentOne.technicianLocationListener;
 
 public class UsersMapActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -36,7 +34,6 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
     private GeoFire geoFire;
     private LatLng latLng;
     private LatLngBounds bounds;
-    private Button cancelButton;
 
     private GoogleMap mMap;
 
@@ -48,6 +45,7 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
     private FirebaseAuth mFireBaseAuth;
     private String userId;
     private Boolean technicianArrived=false;
+    private Boolean listenerAdded=false;
 
     public static Activity activity;
 
@@ -67,26 +65,7 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
         mDatabaseReference.child("TechnicianAccepted").child(userId).removeEventListener(technicianLocationListener);
         mDatabaseReference.child("TechnicianAccepted").child(userId).removeValue();
         removeRequest();
-        hideButton();
         backToServiceBoard();
-
-    }
-
-    public void hideButton(){
-
-        if(buttonShowed) {
-
-            cancelButton.animate().translationYBy(pixels()).setDuration(500);
-            buttonShowed=false;
-
-        }
-
-    }
-
-    public float pixels(){
-
-        float px= TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,60,getResources().getDisplayMetrics());
-        return px;
 
     }
 
@@ -149,8 +128,6 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
         mFireBaseAuth=FirebaseAuth.getInstance();
         userId=mFireBaseAuth.getCurrentUser().getUid();
 
-        cancelButton= findViewById(R.id.cancelButton);
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -161,7 +138,6 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
             public void onKeyEntered(String key, GeoLocation location) {
                 if(key.equals(technicianUserId)) {
 
-                    Toast.makeText(UsersMapActivity.this, "Technician found", Toast.LENGTH_SHORT).show();
                     LatLngBounds.Builder builder=new LatLngBounds.Builder();
                     builder.include(new LatLng(location.latitude,location.longitude));
                     builder.include(latLng);
@@ -181,7 +157,6 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
             public void onKeyMoved(String key, GeoLocation location) {
                 if(key.equals(technicianUserId)) {
 
-                    Toast.makeText(UsersMapActivity.this, "Technician moved", Toast.LENGTH_SHORT).show();
                     UpdateMap(location);
 
                 }
@@ -209,6 +184,7 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
         geoFire=new GeoFire(mDatabaseReference.child("TLocations").child(category));
         geoQuery=geoFire.queryAtLocation(FragmentOne.requestedLocation,5);
         geoQuery.addGeoQueryEventListener(geoQueryEventListener);
+        listenerAdded=true;
 
     }
 
@@ -225,6 +201,7 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.getUiSettings().setMapToolbarEnabled(false);
         mMap.addMarker(new MarkerOptions().position(latLng).title("Requested position"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
     }
@@ -240,7 +217,8 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     protected void onResume() {
 
-        geoQuery.addGeoQueryEventListener(geoQueryEventListener);
+        if(!listenerAdded)
+            geoQuery.addGeoQueryEventListener(geoQueryEventListener);
 
         super.onResume();
     }
