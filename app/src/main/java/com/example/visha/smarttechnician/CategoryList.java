@@ -81,7 +81,8 @@ public class CategoryList extends AppCompatActivity {
     public void back2Home(){
 
         mDatabaseReference.child("TechnicianAccepted").child(userId).removeEventListener(technicianLocationListener);
-        UsersMapActivity.geoQuery.removeAllListeners();
+        if(UsersMapActivity.geoQuery!=null)
+            UsersMapActivity.geoQuery.removeAllListeners();
         Intent intent=new Intent(this,HomeScreen.class);
         startActivity(intent);
         finish();

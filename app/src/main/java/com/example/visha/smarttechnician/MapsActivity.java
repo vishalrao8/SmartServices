@@ -111,7 +111,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void back2Home() {
 
-        geoQuery.removeAllListeners();
+        if(geoQuery!=null)
+            geoQuery.removeAllListeners();
         mFusedLocationClient.removeLocationUpdates(locationCallback);
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
@@ -171,7 +172,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             if(geoQuery!=null)
                 geoQuery.removeAllListeners();
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Your position"));
+            mMap.addMarker(new MarkerOptions().position(latLng).title("Your position").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
             GeoLocation technicianGeoLocation = new GeoLocation(latLng.latitude, latLng.longitude);
             TgeoFire.setLocation(userId, technicianGeoLocation);
@@ -263,7 +264,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         if (!dataSnapshot.exists()) {
 
-                            mMap.addMarker(new MarkerOptions().position(new LatLng(newUserGeo.latitude, newUserGeo.longitude)).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).title(userKey));
+                            mMap.addMarker(new MarkerOptions().position(new LatLng(newUserGeo.latitude, newUserGeo.longitude)).title(userKey));
 
                         } else {
 

@@ -2,8 +2,11 @@ package com.example.visha.smarttechnician;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
@@ -18,9 +21,13 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import static com.example.visha.smarttechnician.FragmentOne.buttonShowed;
+import static com.example.visha.smarttechnician.FragmentOne.technicianLocationListener;
 
 public class UsersMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -29,6 +36,7 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
     private GeoFire geoFire;
     private LatLng latLng;
     private LatLngBounds bounds;
+    private Button cancelButton;
 
     private GoogleMap mMap;
 
@@ -37,8 +45,84 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
+    private FirebaseAuth mFireBaseAuth;
+    private String userId;
+    private Boolean technicianArrived=false;
 
     public static Activity activity;
+
+    public void backToServiceBoard(){
+
+        Intent intent=new Intent(this,CategoryList.class);
+        startActivity(intent);
+        finish();
+
+    }
+
+    public void resetUserUI(){
+
+        Toast.makeText(UsersMapActivity.this, "Technician has arrived :)", Toast.LENGTH_LONG).show();
+        if(geoQuery!=null)
+            geoQuery.removeAllListeners();
+        mDatabaseReference.child("TechnicianAccepted").child(userId).removeEventListener(technicianLocationListener);
+        mDatabaseReference.child("TechnicianAccepted").child(userId).removeValue();
+        removeRequest();
+        hideButton();
+        backToServiceBoard();
+
+    }
+
+    public void hideButton(){
+
+        if(buttonShowed) {
+
+            cancelButton.animate().translationYBy(pixels()).setDuration(500);
+            buttonShowed=false;
+
+        }
+
+    }
+
+    public float pixels(){
+
+        float px= TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,60,getResources().getDisplayMetrics());
+        return px;
+
+    }
+
+    public float calculateDistanceLeft(GeoLocation techGeoLocation,LatLng userLatLng){
+
+        Location techLocation=new Location(LOCATION_SERVICE);
+        Location userLocation=new Location(LOCATION_SERVICE);
+        techLocation.setLongitude(techGeoLocation.longitude);
+        techLocation.setLatitude(techGeoLocation.latitude);
+        userLocation.setLatitude(userLatLng.latitude);
+        userLocation.setLongitude(userLatLng.longitude);
+        float distance =  userLocation.distanceTo(techLocation);
+        float distanceInDP = (Math.round(distance * 10)) / 10;
+        return distanceInDP;
+
+    }
+
+    public void removeRequest(){
+
+        mDatabaseReference.child("ActiveRequests").child(userId).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+                if(databaseError==null){
+
+                    geoFire=new GeoFire(mDatabaseReference.child("ULocations").child(category));
+                    geoFire.removeLocation(userId);
+                    FragmentOne.requestActive=false;
+                    FragmentOne.removeActiveRequest();
+
+                }
+            }
+        });
+
+    }
+
 
     public void UpdateMap(GeoLocation techGeoLocation){
 
@@ -46,6 +130,12 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
         mMap.addMarker(new MarkerOptions().position(latLng).title("Requested position"));
         LatLng techLatLng=new LatLng(techGeoLocation.latitude,techGeoLocation.longitude);
         mMap.addMarker(new MarkerOptions().position(techLatLng).title("Technician").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        if(calculateDistanceLeft(techGeoLocation,latLng)<10 && !technicianArrived){
+
+            technicianArrived=true;
+            resetUserUI();
+
+        }
 
     }
 
@@ -56,6 +146,10 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
 
         mFirebaseDatabase=FirebaseDatabase.getInstance();
         mDatabaseReference=mFirebaseDatabase.getReference();
+        mFireBaseAuth=FirebaseAuth.getInstance();
+        userId=mFireBaseAuth.getCurrentUser().getUid();
+
+        cancelButton= findViewById(R.id.cancelButton);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -133,5 +227,21 @@ public class UsersMapActivity extends FragmentActivity implements OnMapReadyCall
         mMap = googleMap;
         mMap.addMarker(new MarkerOptions().position(latLng).title("Requested position"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+    }
+
+    @Override
+    protected void onPause() {
+
+        if(geoQuery!=null)
+            geoQuery.removeAllListeners();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+
+        geoQuery.addGeoQueryEventListener(geoQueryEventListener);
+
+        super.onResume();
     }
 }

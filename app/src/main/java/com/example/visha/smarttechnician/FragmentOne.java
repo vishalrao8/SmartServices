@@ -83,11 +83,6 @@ public class FragmentOne extends ListFragment {
         intentBuilder=new PlacePicker.IntentBuilder();
         viewPager= getActivity().findViewById(R.id.viewPager);
 
-        progressDialog=new ProgressDialog(getActivity());
-        progressDialog.setMessage("Checking Requests");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
         technicianLocationListener=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -115,7 +110,8 @@ public class FragmentOne extends ListFragment {
 
                         Toast.makeText(getActivity(), "Technician rejected your request, waiting for another technician....", Toast.LENGTH_LONG).show();
                         technicianAccepted=false;
-                        UsersMapActivity.geoQuery.removeAllListeners();
+                        if(UsersMapActivity.geoQuery!=null)
+                            UsersMapActivity.geoQuery.removeAllListeners();
                         UsersMapActivity.activity.finish();
 
                     }
@@ -129,7 +125,14 @@ public class FragmentOne extends ListFragment {
             }
         };
 
-        checkIfRequestIsActive();
+        if(!requestActive)
+        {
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Checking Requests");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+            checkIfRequestIsActive();
+        }
 
     }
 
