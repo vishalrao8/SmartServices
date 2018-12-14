@@ -26,14 +26,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.CATEGORY;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.NAME;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TYPE;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USER;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USERS;
 
-    private static final String USERS = "Users";
-    private static final String TYPE = "type";
-    private static final String USER = "user";
-    private static final String NAME = "name";
-    private static final String CATEGORY = "category";
-    private static final String TECHNICIAN = "technician";
+public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 123;
     private List<AuthUI.IdpConfig> providers = Collections.singletonList(
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
                             Toast.makeText(MainActivity.this, getString(R.string.main_technician_kickout_warning), Toast.LENGTH_SHORT).show();
                             AuthUI.getInstance().signOut(MainActivity.this);
-                            buttonActive=true;
+                            buttonActive = true;
 
                         } else {
 
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
     public void intentToTechnicianRegistration() {
 
         Intent intent=new Intent(this,RegisterTechnicianActivity.class);
-        intent.putExtra(TYPE,TECHNICIAN);
+        intent.putExtra(TYPE, TECHNICIAN);
         startActivity(intent);
         finish();
 

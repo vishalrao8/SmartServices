@@ -27,6 +27,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import static com.example.visha.smarttechnician.ui.fragments.CategoryViewFragment.technicianLocationListener;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.ACTIVE_REQUESTS;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.CATEGORY;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_ACCEPTED;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_LOCATIONS;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_USER_ID;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USER_LOCATIONS;
 
 public class UserMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -63,8 +69,8 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         Toast.makeText(UserMapActivity.this, R.string.usermap_technician_arrived_info, Toast.LENGTH_LONG).show();
         if(geoQuery!=null)
             geoQuery.removeAllListeners();
-        mDatabaseReference.child("TechnicianAccepted").child(userId).removeEventListener(technicianLocationListener);
-        mDatabaseReference.child("TechnicianAccepted").child(userId).removeValue();
+        mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).removeEventListener(technicianLocationListener);
+        mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).removeValue();
         removeRequest();
         backToServiceBoard();
 
@@ -79,20 +85,19 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         userLocation.setLatitude(userLatLng.latitude);
         userLocation.setLongitude(userLatLng.longitude);
         float distance =  userLocation.distanceTo(techLocation);
-        float distanceInDP = (Math.round(distance * 10)) / 10;
-        return distanceInDP;
+        return (float) ((Math.round(distance * 10)) / 10);
 
     }
 
     public void removeRequest(){
 
-        mDatabaseReference.child("ActiveRequests").child(userId).removeValue(new DatabaseReference.CompletionListener() {
+        mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).removeValue(new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
                 if(databaseError==null){
 
-                    geoFire=new GeoFire(mDatabaseReference.child("ULocations").child(category));
+                    geoFire=new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
                     geoFire.removeLocation(userId);
                     CategoryViewFragment.requestActive=false;
                     CategoryViewFragment.removeActiveRequest();
@@ -183,18 +188,17 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         activity = this;
 
         Intent intent = getIntent();
-        technicianUserId = intent.getStringExtra("technicianUserId");
-        category = intent.getStringExtra("category");
+        technicianUserId = intent.getStringExtra(TECHNICIAN_USER_ID);
+        category = intent.getStringExtra(CATEGORY);
 
         latLng = new LatLng(CategoryViewFragment.requestedLocation.latitude,CategoryViewFragment.requestedLocation.longitude);
 
-        geoFire = new GeoFire(mDatabaseReference.child("TLocations").child(category));
+        geoFire = new GeoFire(mDatabaseReference.child(TECHNICIAN_LOCATIONS).child(category));
         geoQuery = geoFire.queryAtLocation(CategoryViewFragment.requestedLocation,5);
         geoQuery.addGeoQueryEventListener(geoQueryEventListener);
         listenerAdded = true;
 
     }
-
 
     /**
      * Manipulates the map once available.

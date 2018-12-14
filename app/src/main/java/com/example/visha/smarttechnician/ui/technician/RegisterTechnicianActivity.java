@@ -18,7 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Arrays;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.CATEGORY;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TYPE;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USERS;
 
 public class RegisterTechnicianActivity extends AppCompatActivity {
 
@@ -38,8 +40,8 @@ public class RegisterTechnicianActivity extends AppCompatActivity {
 
     public void intentToTechnicianUi(){
 
-        Intent intent=new Intent(this,TechnicianMapsActivity.class);
-        intent.putExtra("category", category);
+        Intent intent = new Intent(this, TechnicianMapsActivity.class);
+        intent.putExtra(CATEGORY, category);
         startActivity(intent);
         finish();
 
@@ -49,20 +51,18 @@ public class RegisterTechnicianActivity extends AppCompatActivity {
 
         if(enterNameEditText.getText().toString().trim().length()!=0){
 
-            if(category.trim().length()!=0) {
+            if(category.trim().length() != 0) {
 
                 Technician technician = new Technician(enterNameEditText.getText().toString(), phoneNumber, type, category);
-                mDatabaseReference.child("Users").child(userId).setValue(technician);
+                mDatabaseReference.child(USERS).child(userId).setValue(technician);
                 intentToTechnicianUi();
-            }
-            else{
+            } else {
 
                 Toast.makeText(this, getString(R.string.regtech_select_category_warning), Toast.LENGTH_SHORT).show();
 
             }
 
-        }
-        else{
+        } else {
 
             Toast.makeText(this, getString(R.string.regtech_invalid_name_warning), Toast.LENGTH_SHORT).show();
 
@@ -90,7 +90,7 @@ public class RegisterTechnicianActivity extends AppCompatActivity {
         continueButton.animate().translationYBy(-Utilities.pixels(this)).setDuration(800);
 
         Intent intent = getIntent();
-        type=intent.getStringExtra("type");
+        type = intent.getStringExtra(TYPE);
 
         dropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

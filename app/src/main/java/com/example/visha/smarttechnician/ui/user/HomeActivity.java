@@ -46,10 +46,12 @@ import static com.example.visha.smarttechnician.ui.fragments.CategoryViewFragmen
 import static com.example.visha.smarttechnician.ui.fragments.CategoryViewFragment.requestActive;
 import static com.example.visha.smarttechnician.ui.fragments.CategoryViewFragment.requestedLocation;
 import static com.example.visha.smarttechnician.ui.fragments.CategoryViewFragment.technicianLocationListener;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.ACTIVE_REQUESTS;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.CATEGORY_POSITION;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_ACCEPTED;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USER_LOCATIONS;
 
 public class HomeActivity extends AppCompatActivity {
-
-    private final String CATEGORY_POSITION = "category_position";
 
     private Button cancelButton;
     private ViewPager viewPager;
@@ -128,13 +130,13 @@ public class HomeActivity extends AppCompatActivity {
 
     public void cancelRequest(View view){
 
-            mDatabaseReference.child("ActiveRequests").child(userId).removeValue(new DatabaseReference.CompletionListener() {
+            mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).removeValue(new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
                 if(databaseError == null) {
 
-                    geoFire = new GeoFire(mDatabaseReference.child("ULocations").child(category));
+                    geoFire = new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
                     geoFire.removeLocation(userId, new GeoFire.CompletionListener() {
                         @Override
                         public void onComplete(String key, DatabaseError error) {
@@ -147,7 +149,7 @@ public class HomeActivity extends AppCompatActivity {
                     CategoryViewFragment.requestActive=false;
                     viewPager.setCurrentItem(0);
                     CategoryViewFragment.removeActiveRequest();
-                    mDatabaseReference.child("TechnicianAccepted").child(userId).removeEventListener(technicianLocationListener);
+                    mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).removeEventListener(technicianLocationListener);
 
                     if(UserMapActivity.geoQuery != null)
 
@@ -160,7 +162,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void back2Home() {
 
-        mDatabaseReference.child("TechnicianAccepted").child(userId).removeEventListener(technicianLocationListener);
+        mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).removeEventListener(technicianLocationListener);
         SharedPreferences.userLoggedOut(this);
 
         if(UserMapActivity.geoQuery != null)
@@ -215,13 +217,13 @@ public class HomeActivity extends AppCompatActivity {
     public void raiseRequest(Place place) {
 
         requestedLocation = new GeoLocation(place.getLatLng().latitude,place.getLatLng().longitude);
-        mDatabaseReference.child("ActiveRequests").child(userId).setValue(category, new DatabaseReference.CompletionListener() {
+        mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).setValue(category, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
 
                 if(databaseError == null) {
 
-                    geoFire = new GeoFire(mDatabaseReference.child("ULocations").child(category));
+                    geoFire = new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
                     geoFire.setLocation(userId, requestedLocation, new GeoFire.CompletionListener() {
                         @Override
                         public void onComplete(String key, DatabaseError error) {
@@ -246,7 +248,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void checkIfTechnicianIsComing() {
 
-        mDatabaseReference.child("TechnicianAccepted").child(userId).addValueEventListener(technicianLocationListener);
+        mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).addValueEventListener(technicianLocationListener);
 
     }
 

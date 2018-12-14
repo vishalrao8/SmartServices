@@ -18,6 +18,9 @@ import com.example.visha.smarttechnician.ui.user.UserMapActivity;
 
 import java.util.ArrayList;
 
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.CATEGORY;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_USER_ID;
+
 public class ActiveRequestFragment extends ListFragment {
 
     public static ArrayList<Integer> fragment2arrayList=new ArrayList<>();
@@ -63,8 +66,8 @@ public class ActiveRequestFragment extends ListFragment {
     public void UserMapsUI(String id, String category){
 
         Intent intent=new Intent(getActivity(),UserMapActivity.class);
-        intent.putExtra("technicianUserId",id);
-        intent.putExtra("category",category);
+        intent.putExtra(TECHNICIAN_USER_ID,id);
+        intent.putExtra(CATEGORY,category);
         startActivity(intent);
 
     }

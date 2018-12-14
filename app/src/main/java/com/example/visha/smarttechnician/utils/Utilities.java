@@ -9,4 +9,5 @@ public class Utilities {
 
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, context.getResources().getDisplayMetrics());
     }
+
 }

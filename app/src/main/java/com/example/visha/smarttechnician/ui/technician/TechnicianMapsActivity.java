@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -53,6 +52,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.CATEGORY;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.MAPS_PACKAGE_ID;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.MAPS_STARTING_URL;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_ACCEPTED;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_LOCATIONS;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USER_LOCATIONS;
 
 public class TechnicianMapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -152,8 +158,16 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
         String technicianLatitude = String.valueOf(lastKnownLocation.getLatitude());
         String technicianLongitude = String.valueOf(lastKnownLocation.getLongitude());
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?saddr=" + technicianLatitude + "," + technicianLongitude + "&daddr=" + userLatitude + "," + userLongitude));
-        intent.setPackage("com.google.android.apps.maps");
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
+                MAPS_STARTING_URL + technicianLatitude
+                + ","
+                + technicianLongitude
+                + "&daddr="
+                + userLatitude
+                + ","
+                + userLongitude));
+
+        intent.setPackage(MAPS_PACKAGE_ID);
         startActivity(intent);
 
     }
@@ -161,7 +175,7 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
     public void onNavigationClicked(View view) {
 
         NavigationUI();
-        mDatabaseReference.child("TechnicianAccepted").child(requestedUserId).child(userId).setValue(category);
+        mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(requestedUserId).child(userId).setValue(category);
         technicianAccepted=true;
 
 
@@ -177,7 +191,10 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
                 geoQuery.removeAllListeners();
 
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Your position").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+            mMap.addMarker(new MarkerOptions()
+                    .position(latLng)
+                    .title(getString(R.string.techmap_marker_header))
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
             GeoLocation technicianGeoLocation = new GeoLocation(latLng.latitude, latLng.longitude);
             TgeoFire.setLocation(userId, technicianGeoLocation, new GeoFire.CompletionListener() {
@@ -254,7 +271,7 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technician_map);
-        getSupportActionBar().setTitle("Nearby requests");
+        getSupportActionBar().setTitle(R.string.techmap_toolbar_title);
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference();
@@ -268,7 +285,7 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
             public void onKeyEntered(String key, GeoLocation location) {
                 final GeoLocation newUserGeo = new GeoLocation(location.latitude, location.longitude);
                 final String userKey = key;
-                mDatabaseReference.child("TechnicianAccepted").child(userKey).addValueEventListener(new ValueEventListener() {
+                mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userKey).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -364,10 +381,10 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
         navigateButton =  findViewById(R.id.button_technicianmap_startnagivation);
 
         Intent intent = getIntent();
-        category = intent.getStringExtra("category");
+        category = intent.getStringExtra(CATEGORY);
 
-        TgeoFire = new GeoFire(mDatabaseReference.child("TLocations").child(category));
-        UgeoFire = new GeoFire(mDatabaseReference.child("ULocations").child(category));
+        TgeoFire = new GeoFire(mDatabaseReference.child(TECHNICIAN_LOCATIONS).child(category));
+        UgeoFire = new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -422,7 +439,7 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
             @Override
             public boolean onMarkerClick(Marker marker) {
 
-                if (!marker.getTitle().equals("Your position")) {
+                if (!marker.getTitle().equals(getString(R.string.techmap_marker_header))) {
 
                     requestedUserId = marker.getTitle();
 
@@ -431,7 +448,7 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
                     userLocation.setLatitude(latLng.latitude);
                     userLocation.setLongitude(latLng.longitude);
                     float distanceInDP=calculateDistanceLeft();
-                    marker.setTitle(String.valueOf(distanceInDP/1000) + " Kilometers");
+                    marker.setTitle(String.valueOf(distanceInDP/1000) + getString(R.string.techmap_kilometers));
 
                     userLatitude = String.valueOf(latLng.latitude);
                     userLongitude = String.valueOf(latLng.longitude);
@@ -465,7 +482,7 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
         if(technicianAccepted && !destinationArrived){
 
             //technician rejected in between the way
-            mDatabaseReference.child("TechnicianAccepted").child(requestedUserId).removeValue();
+            mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(requestedUserId).removeValue();
             technicianAccepted=false;
             updateMap(lastKnownLocation);
 
@@ -490,7 +507,7 @@ public class TechnicianMapsActivity extends AppCompatActivity implements OnMapRe
         if(technicianAccepted && !destinationArrived){
 
             //technician closed app in between the way
-            mDatabaseReference.child("TechnicianAccepted").child(requestedUserId).removeValue();
+            mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(requestedUserId).removeValue();
 
         }
 

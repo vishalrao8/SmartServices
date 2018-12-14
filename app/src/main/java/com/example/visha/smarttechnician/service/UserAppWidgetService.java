@@ -17,8 +17,9 @@ public class UserAppWidgetService extends RemoteViewsService {
 
     public class RemoteViewFactory implements RemoteViewsFactory {
 
+        private static final String CATEGORY_POSITION = "category_position";
+
         private final int LENGTH = 5;
-        private final String CATEGORY_POSITION = "category_position";
         private String[] serviceTitle;
 
         private final Context context;

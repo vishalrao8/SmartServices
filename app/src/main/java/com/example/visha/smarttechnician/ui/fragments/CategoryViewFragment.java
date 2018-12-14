@@ -34,12 +34,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.ACTIVE_REQUESTS;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.CATEGORY;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_ACCEPTED;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TECHNICIAN_USER_ID;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USER_LOCATIONS;
 
 public class CategoryViewFragment extends Fragment implements CategoryViewAdapter.onCategoryClickedInterface {
 
@@ -146,17 +150,6 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-        super.onViewCreated(view, savedInstanceState);
-
-        /*ListView listView=getListView();
-        mArrayAdapter arrayAdapter=new mArrayAdapter(getActivity(),R.layout.item_active_request,categoryList);
-        listView.setAdapter(arrayAdapter);*/
-
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if(requestCode == 1) {
@@ -222,18 +215,18 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
 
     public void checkIfRequestIsActive(){
 
-        mDatabaseReference.child("ActiveRequests").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
 
-                    category=(String)dataSnapshot.getValue();
-                    Log.i("category",category);
-                    geoFire=new GeoFire(mDatabaseReference.child("ULocations").child(category));
+                    category = (String) dataSnapshot.getValue();
+                    Log.i(CATEGORY, category);
+                    geoFire = new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
                     geoFire.getLocation(userId, new LocationCallback() {
                         @Override
                         public void onLocationResult(String key, GeoLocation location) {
-                            requestedLocation=location;
+                            requestedLocation = location;
                         }
 
                         @Override
@@ -262,29 +255,29 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
 
     public void UserMapsUI(String id, String category) {
 
-        Intent intent=new Intent(getActivity(),UserMapActivity.class);
-        intent.putExtra("technicianUserId",id);
-        intent.putExtra("category",category);
+        Intent intent = new Intent(getActivity(),UserMapActivity.class);
+        intent.putExtra(TECHNICIAN_USER_ID, id);
+        intent.putExtra(CATEGORY, category);
         startActivity(intent);
 
     }
 
     public void checkIfTechnicianIsComing() {
 
-        mDatabaseReference.child("TechnicianAccepted").child(userId).addValueEventListener(technicianLocationListener);
+        mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).addValueEventListener(technicianLocationListener);
 
     }
 
     public void raiseRequest(Place place) {
 
         requestedLocation = new GeoLocation(place.getLatLng().latitude,place.getLatLng().longitude);
-        mDatabaseReference.child("ActiveRequests").child(userId).setValue(category, new DatabaseReference.CompletionListener() {
+        mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).setValue(category, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
 
                 if(databaseError == null) {
 
-                    geoFire = new GeoFire(mDatabaseReference.child("ULocations").child(category));
+                    geoFire = new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
                     geoFire.setLocation(userId, requestedLocation, new GeoFire.CompletionListener() {
                         @Override
                         public void onComplete(String key, DatabaseError error) {

@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'key0'
             keyPassword 'password'
-            storeFile file('C:/Users/visha/AndroidStudioProjects/Smart Technician/keystore.jks')
+            storeFile file('keystore.jks')
             storePassword 'password'
         }
     }

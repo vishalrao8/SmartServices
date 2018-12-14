@@ -44,6 +44,9 @@
 
     <!-- TechnicianMapsActivity string resource -->
     <string name="tech_cant_fetch_location_warning">Can\'t fetch your current location :(</string>
+    <string name="techmap_marker_header">Your position</string>
+    <string name="techmap_toolbar_title">Nearby requests</string>
+    <string name="techmap_kilometers">Kilometers</string>
 
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_users_map">Map</string>

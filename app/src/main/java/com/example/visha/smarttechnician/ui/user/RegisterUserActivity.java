@@ -16,6 +16,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.TYPE;
+import static com.example.visha.smarttechnician.utils.StringResourceProvider.USERS;
+
 public class RegisterUserActivity extends AppCompatActivity {
 
     private EditText enterNameEditText;
@@ -31,7 +34,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     public void intentToUserUi(){
 
-        Intent intent=new Intent(this,HomeActivity.class);
+        Intent intent = new Intent(this,HomeActivity.class);
         startActivity(intent);
         finish();
 
@@ -42,7 +45,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         if(enterNameEditText.getText().toString().trim().length()!=0) {
 
             User user = new User(enterNameEditText.getText().toString(), phoneNumber, type);
-            mDatabaseReference.child("Users").child(userId).setValue(user);
+            mDatabaseReference.child(USERS).child(userId).setValue(user);
             intentToUserUi();
 
         }
@@ -66,7 +69,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         phoneNumber = mFireBaseAuth.getCurrentUser().getPhoneNumber();
 
         Intent intent = getIntent();
-        type=intent.getStringExtra("type");
+        type=intent.getStringExtra(TYPE);
 
         enterNameEditText = findViewById(R.id.edittext_registeruser_name);
         continueButton = findViewById(R.id.button_registeruser_continue);
