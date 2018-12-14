@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="service_images">
+        <item>@drawable/electrician</item>
+        <item>@drawable/plumber</item>
+        <item>@drawable/carpenter</item>
+        <item>@drawable/painter</item>
+        <item>@drawable/computer</item>
+    </array>
+
+    <array name="service_drawable_resources">
+        <item>R.drawable.electrician</item>
+        <item>R.drawable.plumber</item>
+        <item>R.drawable.carpenter</item>
+        <item>R.drawable.painter</item>
+        <item>R.drawable.computer</item>
+    </array>
+
+    <string-array name="services_name">
+        <item>Electrician</item>
+        <item>Plumber</item>
+        <item>Carpenter</item>
+        <item>Painter</item>
+        <item>Portable Devices</item>
+    </string-array>
+
+</resources>

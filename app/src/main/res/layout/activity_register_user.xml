@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.visha.smarttechnician.ui.user.RegisterUserActivity">
+
+    <TextView
+        android:id="@+id/textview_registeruser_nametitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        android:text="@string/enter_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
+
+
+    <EditText
+        android:id="@+id/edittext_registeruser_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@id/textview_registeruser_nametitle"
+        app:layout_constraintTop_toBottomOf="@id/textview_registeruser_nametitle"
+        app:layout_constraintEnd_toEndOf="@id/textview_registeruser_nametitle"
+        tools:ignore="Autofill,LabelFor" />
+
+
+    <Button
+        android:id="@+id/button_registeruser_continue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/common_google_signin_btn_text_dark_focused"
+        android:onClick="onContinueClicked"
+        android:text="@string/continue_button"
+        android:textColor="@android:color/white"
+        android:translationY="60dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

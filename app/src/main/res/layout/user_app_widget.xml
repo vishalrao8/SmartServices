@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:padding="@dimen/widget_margin">
+
+    <TextView
+        android:id="@+id/textview_widget_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textAlignment="center"
+        android:paddingBottom="@dimen/corner_radius_widget_10dp"
+        android:layout_marginTop="@dimen/margin_default"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:text="@string/widget_choose_service" />
+
+    <ListView
+        android:id="@+id/listview_widget_services"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_widget_title"/>
+
+</RelativeLayout>

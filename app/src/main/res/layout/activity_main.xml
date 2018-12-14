@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.visha.smarttechnician.ui.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageview_main_backdrop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:alpha=".3"
+        android:contentDescription="@string/main_content_description"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="@id/button_main_user"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/button_main_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/common_google_signin_btn_text_dark_focused"
+        android:onClick="userEntry"
+        android:text="@string/main_user_button"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:textColor="@android:color/white"
+        android:translationY="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_main_or"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_main_or"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/main_or"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button_main_technician"
+        app:layout_constraintEnd_toEndOf="@+id/button_main_technician"
+        app:layout_constraintStart_toStartOf="@+id/button_main_technician" />
+
+    <Button
+        android:id="@+id/button_main_technician"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+        android:onClick="technicianEntry"
+        android:text="@string/main_technician_button"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

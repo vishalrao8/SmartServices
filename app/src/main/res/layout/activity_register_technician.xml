@@ -1,79 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.visha.smarttechnician.RegisterTechnician">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.visha.smarttechnician.ui.technician.RegisterTechnicianActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textview_registertechnician_nametitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:id="@+id/linearLayout">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="@string/enter_name"
-            android:textSize="18sp" />
+        android:layout_margin="@dimen/margin_default"
+        android:text="@string/enter_name"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/technicianEnterNameEditText"
-            android:layout_width="match_parent"
+            android:id="@+id/edittext_registertechnician_name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:textSize="25sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:id="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout">
+            app:layout_constraintStart_toStartOf="@id/textview_registertechnician_nametitle"
+            app:layout_constraintTop_toBottomOf="@id/textview_registertechnician_nametitle"
+            app:layout_constraintEnd_toEndOf="@id/textview_registertechnician_nametitle"
+            tools:ignore="Autofill,LabelFor" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textview_registertechnician_choosecategorytitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            android:layout_marginTop="@dimen/margin_default"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="@id/edittext_registertechnician_name"
+            app:layout_constraintTop_toBottomOf="@id/edittext_registertechnician_name"
+            app:layout_constraintEnd_toEndOf="@id/edittext_registertechnician_name"/>
+
+    <Spinner
+        android:id="@+id/spinner_registertechnician_choosecategory"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:dropDownWidth="match_parent"
+        android:theme="@style/Base.Widget.AppCompat.DropDownItem.Spinner"
+        app:layout_constraintEnd_toEndOf="@id/textview_registertechnician_choosecategorytitle"
+        app:layout_constraintStart_toStartOf="@id/textview_registertechnician_choosecategorytitle"
+        app:layout_constraintTop_toBottomOf="@id/textview_registertechnician_choosecategorytitle" />
+
+    <Button
+            android:id="@+id/button_registertechnician_continue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="@string/category"
-            android:textSize="18sp" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:dropDownWidth="match_parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        android:layout_gravity="bottom">
-
-        <Button
-            android:id="@+id/TcontinueButton"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
             android:background="@color/common_google_signin_btn_text_dark_focused"
             android:onClick="onContinueClicked"
             android:text="@string/continue_button"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:translationY="150dp" />
-    </LinearLayout>
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:translationY="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imageview_activereq_categorytile"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/margin_default"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/carpenter"
+        android:contentDescription="@string/home_content_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_activereq_categoryname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        tools:text="@string/carpenter"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_activereq_categorytile"
+        app:layout_constraintStart_toEndOf="@+id/imageview_activereq_categorytile"
+        app:layout_constraintTop_toTopOf="@+id/imageview_activereq_categorytile" />
+
+</android.support.constraint.ConstraintLayout>

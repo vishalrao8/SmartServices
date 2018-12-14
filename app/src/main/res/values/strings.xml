@@ -1,8 +1,50 @@
 <resources>
     <string name="app_name">SmartTechnician</string>
-    <string name="request_a_technician">Request a technician</string>
-    <string name="or">OR</string>
-    <string name="serve_as_technician">Serve as technician</string>
+
+    <!-- MainActivity string resources -->
+    <string name="main_title">Welcome</string>
+    <string name="main_content_description">Welcome! Choose your option of interest below</string>
+    <string name="main_user_button">Request a technician</string>
+    <string name="main_or">OR</string>
+    <string name="main_technician_button">Join as technician</string>
+    <string name="main_progressbar">Loading</string>
+    <string name="main_signin_cancelled_info">SignIn cancelled</string>
+    <string name="main_no_network_warning">No internet connection</string>
+    <string name="main_error">Unknown error</string>
+    <string name="main_technician_kickout_warning">This mobile number is already registered as an user</string>
+    <string name="main_user_kickout_warning">This mobile number is already registered as a technician</string>
+
+    <!-- HomeActivity string resources -->
+    <string name="home_request_canceled_warning">Request canceled</string>
+    <string name="home_tab_one_title">Services</string>
+    <string name="home_tab_two_title">Active requests</string>
+    <string name="home_tab_three_title">History</string>
+    <string name="home_toolbar_title">ServiceBoard</string>
+
+    <!-- CategoryViewFragment -->
+    <string name="item_content_description">Image of service category selected</string>
+    <string name="home_extra_request_warning">You can request only one service at a time</string>
+    <string name="home_technician_rejected_info">Technician rejected your request, waiting for another technician....</string>
+    <string name="home_checking_active_requests_info">Checking Requests</string>
+    <string name="home_request_raised_info">Requested Successfully</string>
+    <string name="home_request_failed_info">Failed to request, please try again later</string>
+
+    <!-- ActiveRequestFragment -->
+    <string name="home_content_description">Active request</string>
+    <string name="home_force_request_touch_warning">You will be automatically redirected to maps once technician accepts your request</string>
+
+    <!-- UserMapActivity string resources -->
+    <string name="usermap_technician_arrived_info">Technician has arrived :)</string>
+    <string name="usermap_marker_header">Requested position</string>
+    <string name="usermap_tech_marker_header">Technician</string>
+
+    <!-- RegisterTechnicianActivity string resources -->
+    <string name="regtech_invalid_name_warning">Please enter a valid name</string>
+    <string name="regtech_select_category_warning">Please select category</string>
+
+    <!-- TechnicianMapsActivity string resource -->
+    <string name="tech_cant_fetch_location_warning">Can\'t fetch your current location :(</string>
+
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_users_map">Map</string>
     <string name="navigate">Navigate</string>
@@ -12,10 +54,18 @@
     <string name="category">Category</string>
     <string name="history">We are eagerly waiting to serve you for the first time</string>
     <string name="active_requests">No active requests</string>
-    <string name="signout">SignOut</string>
+    <string name="sign_out">SignOut</string>
     <string name="electronics">Electronics</string>
     <string name="plumber">Plumber</string>
     <string name="carpenter">Carpenter</string>
     <string name="painter">Painter</string>
     <string name="portable_devices">Portable Devices</string>
+
+    
+    <!-- Widget string resources -->
+    <string name="widget_user_logged_out_message">Please Authenticate as an User to continue!</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+    <string name="widget_choose_service">Choose a Service</string>
+
 </resources>
