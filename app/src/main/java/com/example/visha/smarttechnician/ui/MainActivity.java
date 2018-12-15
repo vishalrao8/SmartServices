@@ -1,10 +1,14 @@
 package com.example.visha.smarttechnician.ui;
 
+import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Slide;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -55,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+
+            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+            getWindow().setExitTransition(new Slide());
+
+        }
+
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle(getString(R.string.main_title));
 
@@ -246,7 +258,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent=new Intent(this,RegisterTechnicianActivity.class);
         intent.putExtra(TYPE, TECHNICIAN);
-        startActivity(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+        else
+            startActivity(intent);
+
         finish();
 
     }
@@ -255,7 +272,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, RegisterUserActivity.class);
         intent.putExtra(TYPE,USER);
-        startActivity(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+        else
+            startActivity(intent);
+
         finish();
 
     }
@@ -264,7 +286,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent=new Intent(this,TechnicianMapsActivity.class);
         intent.putExtra(CATEGORY,category);
-        startActivity(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+        else
+            startActivity(intent);
+
         finish();
 
     }
@@ -272,7 +299,12 @@ public class MainActivity extends AppCompatActivity {
     public void intentToUserUi(String name){
 
         Intent intent=new Intent(this,HomeActivity.class);
-        startActivity(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+        else
+            startActivity(intent);
+
         //Toast.makeText(this, "Welcome back "+name+" :)", Toast.LENGTH_SHORT).show();
         finish();
     }

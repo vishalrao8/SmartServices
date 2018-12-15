@@ -1,5 +1,6 @@
 package com.example.visha.smarttechnician.ui.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -56,7 +57,7 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
     public static String technicianUserId;
 
     private ViewPager viewPager;
-    private ProgressDialog progressDialog;
+    public ProgressDialog progressDialog;
     private Button cancelButton;
 
     private FirebaseAuth mFireBaseAuth;
@@ -126,11 +127,7 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
 
         if(!requestActive) {
 
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage(getString(R.string.home_checking_active_requests_info));
-            progressDialog.setCancelable(false);
-            progressDialog.show();
-            checkIfRequestIsActive();
+            new checkIfRequestActive().execute();
 
         }
     }
@@ -241,7 +238,6 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
                     checkIfTechnicianIsComing();
 
                 }
-                progressDialog.dismiss();
 
             }
 
@@ -298,6 +294,34 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
                 }
             }
         });
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class checkIfRequestActive extends android.os.AsyncTask <Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage(getString(R.string.home_checking_active_requests_info));
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            checkIfRequestIsActive();
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            progressDialog.dismiss();
+        }
     }
 }
 
