@@ -37,18 +37,13 @@ All user oriented functionality is within one Activity divided into 3 fragments 
 #### Libraries used in this app:
 
 - **Firebase library** to store user’s and technician’s data and location coordinates in firebase realtime database.
-‘com.google.firebase:firebase-database:16.0.5’
     
 - **GeoFire library** to make realtime location queries with firebase.
-'com.firebase:geofire-android:2.3.1'
 
 - **Google maps library** to show technician's real time location to user on map.
-'com.google.android.gms:play-services-maps:16.0.0'
 
 - **Google places library** to provide ease of picking the location at which technician is expected to reach after raising the request.
-'com.google.android.gms:play-services-places:16.0.0'
 
 - **Firebase authentication library** to provide authentication system and Firebase Authentication UI, authenticating via a mobile number by auto generating one time password (OTP).
-'com.google.firebase:firebase-auth:16.1.0'
 
 Stable version of libraries, android studio and gradle are used.
