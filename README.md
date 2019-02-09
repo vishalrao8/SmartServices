@@ -19,7 +19,7 @@ This is very useful for students, family living in an area lacking the medium to
 - [Usage](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#usage)
   - [User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)
 - [Contribution](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#contribution)
-- [Technical Description](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#technical-description)
+- [Technical Details](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#technical-description)
   - [Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)
   - [UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)
   - [Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
@@ -56,7 +56,7 @@ This is very useful for students, family living in an area lacking the medium to
 - Make a pull request to this master branch using IDE or browser (later one recommended).
 - Happy contributing :)
 
-# Technical Description
+# Technical Details
 
 ### Features
 
