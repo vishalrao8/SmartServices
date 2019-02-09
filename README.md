@@ -47,7 +47,7 @@ This is very useful for students, family living in an area lacking the medium to
 # Contribution
 
 - Fork this repo to make your own copy of repository, see it's there at the top right.
-- Either download the zip from your forked repo or import the project directly into Android Studio IDE using the setup wizard. Make sure you are importing project from you own copy of repository and not this.
+- Either download the zip from your forked repo or check out project from VCS using Android Studio startup wizard. Make sure you are importing project from you own copy of repository and not this.
 - Contact me at vishal.rao103@gmail.com to get a copy of google-services.json file which is supposed to be placed at root/app directory before building the project or else build process will fail.
 - Build the project using gradle and create a new branch with appropriate name with respect to the feature you are going to add.
 - Start making modifications with complete code comments and method documentations to make it easier for us humans to read.
