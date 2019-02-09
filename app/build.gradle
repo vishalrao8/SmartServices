@@ -3,8 +3,8 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'key0'
-            keyPassword 'password'
+            keyAlias 'smartservices'
+            keyPassword 'smart2services'
             storeFile file('keystore.jks')
             storePassword 'password'
         }
