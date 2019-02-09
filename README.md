@@ -13,7 +13,7 @@ Of course it does, by reducing the resistance that one feels while finding any t
 
 This is very useful for students, family living in an area lacking the medium to call any technician for getting things fixed at home or offices and for technicians seeking to earn some money in exchange of service.
 
-## Index
+# Index
 
 - [Installation](https://github.com/vishalrao8/SmartTechnician#installation)
 - [Usage](https://github.com/vishalrao8/SmartTechnician#usage)
