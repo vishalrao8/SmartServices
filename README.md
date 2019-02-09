@@ -17,11 +17,11 @@ This is very useful for students, family living in an area lacking the medium to
 
 [Installation](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#installation)\
 [Usage](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#usage)\
-&nbsp; &nbsp;[User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)\
+&nbsp; &nbsp; &nbsp;[User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)\
 [Technical Description](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#technical-description)\
-&nbsp; &nbsp;[Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)\
-&nbsp; &nbsp;[UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)\
-&nbsp; &nbsp;[Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
+&nbsp; &nbsp; &nbsp;[Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)\
+&nbsp; &nbsp; &nbsp;[UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)\
+&nbsp; &nbsp; &nbsp;[Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
 
 # Installation
 
