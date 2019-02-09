@@ -15,15 +15,15 @@ This is very useful for students, family living in an area lacking the medium to
 
 ## Index
 
-- [Installation](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#installation)
-- [Usage](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#usage)
-  - [User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)
-- [Contribution](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#contribution)
-- [Technical Details](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#technical-description)
-  - [Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)
-  - [UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)
-  - [Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
-- [Licence](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#licence)
+- [Installation](https://github.com/vishalrao8/SmartTechnician#installation)
+- [Usage](https://github.com/vishalrao8/SmartTechnician#usage)
+  - [User Flow](https://github.com/vishalrao8/SmartTechnician#user-flow)
+- [Contribution](https://github.com/vishalrao8/SmartTechnician#contribution)
+- [Technical Details](https://github.com/vishalrao8/SmartTechnician#technical-details)
+  - [Features](https://github.com/vishalrao8/SmartTechnician#features)
+  - [UI](https://github.com/vishalrao8/SmartTechniciand#ui)
+  - [Key Considerations](https://github.com/vishalrao8/SmartTechnician#key-considerations)
+- [Licence](https://github.com/vishalrao8/SmartTechnician#licence)
 
 # Installation
 
