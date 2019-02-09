@@ -1,4 +1,4 @@
-# SmartTechnician
+# SmartServices
 An app to connect freelance technicians with their customers to develop a source of income for them
 
 #### What does this app do?
