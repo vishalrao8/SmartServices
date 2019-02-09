@@ -1,5 +1,5 @@
 # SmartServices
-An app to connect freelance technicians with their customers to develop a source of income for them
+An app to connect freelancing technicians with their customers to develop a source of income for them.
 
 #### What does this app do?
 
