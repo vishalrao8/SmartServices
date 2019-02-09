@@ -9,23 +9,45 @@ This app is to enhance the experience of users dealing with home services by pro
 
 Of course it does, by reducing the resistance that one feels while finding any technician located farer or closer to them within a specific time period and providing real time location of worker coming to them to make it easy for users to track them.
 
+##### Intended User
+
+This is very useful for students, family living in an area lacking the medium to call any technician for getting things fixed at home or offices and for technicians want to earn some money in exchange of service.
+
 ## Table of Contents
+
+[Installation](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#installation)
+
+[Usage](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#usage)\
+&nbsp; &nbsp; &nbsp;[User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)
 
 [Technical Description](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#technical-description)
 
-&nbsp; &nbsp; &nbsp;[Intended User](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#intended-user)\
 &nbsp; &nbsp; &nbsp;[Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)\
 &nbsp; &nbsp; &nbsp;[UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)\
-&nbsp; &nbsp; &nbsp;[User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)\
 &nbsp; &nbsp; &nbsp;[Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
+
+# Installation
+
+- Grab the APK from [here](https://github.com/vishalrao8/SmartTechnician/blob/master/app/release/app-release.apk).
+- Enable installation from unknown sources in settings if asked during installation.
+
+# Usage
+
+- After installation, you can easily run the application by clicking on App icon in launcher menu.
+- On first screen, navigate further depending upon your requirement. First option is for normal users and second option is for trained tehnicians seeking to find people in need.
+- Authenticate yourself with an OTP sent to your mobile number (Speedup this process by allowing access to messages).
+- For users, Choose any type of service as per your reqirement and pick the appropriate location from map to where technician is expected to arrive.
+- For technicians, You will be navigated straight to a map where you will get real-time updates about requests raised nearby you (within a radius of 5 Kms). If there is any request shown on map, you can easily navigate to that user using Google Maps navigation after selecting user icon on map.
+
+## User Flow
+
+<img src="https://drive.google.com/uc?export=view&id=1j1rAro_li7YSoGj5sWaiA12AEgafr8bU" width="800">
+
+<img src="https://drive.google.com/uc?export=view&id=1kRIgIvAYnG3WVW3464MDtqhTpzw7zLG6" width="800">
 
 # Technical Description
 
-## Intended User
-
-This is very useful for students, family living in an area lacking the medium to call any technician for getting things fixed at home or offices. 
-
-## Features
+### Features
 
 - App is written solely in the Java Programming Language.
 - App keeps all strings in a strings.xml file and enables RTL layout switching on all layouts.
@@ -35,6 +57,10 @@ This is very useful for students, family living in an area lacking the medium to
 - Allow one click login with OTP authentication.
 - Shows real time location of technician to user.
 - Have two every points, one for technician and one for user at login.
+
+### UI
+
+<img src="https://drive.google.com/uc?export=view&id=1ig-tCs23PRryKs1siSsCKEi584ffoRHf" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1ooO8mRzPf2wpSWg9BZYfgdmsus_s8w4j" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kQ0CKsSV12-ypDKROK5ffy5mbcgkfLGw" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kAeidTXO0vgN-W_crMhfmBCaokp032_H" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1zaYzmu8bYAbZ4_0LTGt93Y3EPRhNUzKj" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=13tDOos8tVGkSGadGSPz3j1Mdo7qEZK8x" width="150">
 
 ### Key Considerations
 
@@ -59,27 +85,4 @@ All user oriented functionality is within one Activity divided into 3 fragments 
 - **Firebase authentication library** to provide authentication system and Firebase Authentication UI, authenticating via a mobile number by auto generating one time password (OTP).
 
 Stable version of libraries, android studio and gradle are used.
-
-# Installation
-
-- Grab the APK from [here](https://github.com/vishalrao8/SmartTechnician/blob/master/app/release/app-release.apk).
-- Enable installation from unknown sources in settings if asked during installation.
-
-# Usage
-
-- After installation, you can easily run the application by clicking on App icon in launcher menu.
-- On first screen, navigate further depending upon your requirement. First option is for normal users and second option is for trained tehnicians seeking to find people in need.
-- Authenticate yourself with an OTP sent to your mobile number (Speedup this process by allowing access to messages).
-- For users, Choose any type of service as per your reqirement and pick the appropriate location from map to where technician is expected to arrive.
-- For technicians, You will be navigated straight to a map where you will get real-time updates about requests raised nearby you (within a radius of 5 Kms). If there is any request shown on map, you can easily navigate to that user using Google Maps navigation after selecting user icon on map.
-
-## User Flow
-
-<img src="https://drive.google.com/uc?export=view&id=1j1rAro_li7YSoGj5sWaiA12AEgafr8bU" width="800">
-
-<img src="https://drive.google.com/uc?export=view&id=1kRIgIvAYnG3WVW3464MDtqhTpzw7zLG6" width="800">
-
-## UI
-
-<img src="https://drive.google.com/uc?export=view&id=1ig-tCs23PRryKs1siSsCKEi584ffoRHf" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1ooO8mRzPf2wpSWg9BZYfgdmsus_s8w4j" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kQ0CKsSV12-ypDKROK5ffy5mbcgkfLGw" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kAeidTXO0vgN-W_crMhfmBCaokp032_H" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1zaYzmu8bYAbZ4_0LTGt93Y3EPRhNUzKj" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=13tDOos8tVGkSGadGSPz3j1Mdo7qEZK8x" width="200">
 
