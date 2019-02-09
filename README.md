@@ -13,7 +13,7 @@ Of course it does, by reducing the resistance that one feels while finding any t
 
 This is very useful for students, family living in an area lacking the medium to call any technician for getting things fixed at home or offices and for technicians want to earn some money in exchange of service.
 
-## Table of Contents
+## Index
 
 - [Installation](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#installation)
 - [Usage](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#usage)
@@ -51,7 +51,7 @@ This is very useful for students, family living in an area lacking the medium to
 - Contact me at vishal.rao103@gmail.com to get a copy of google-services.json file which is supposed to be placed at root/app directory before building the project or else build process will fail.
 - Build the project using gradle and create a new branch with appropriate name with respect to the feature you are going to add.
 - Start making modifications with complete code comments and method documentations to make it easier for us humans to read.
-- Make sure your master branch is up to that with origin's master branch i.e. [this](https://github.com/vishalrao8/SmartTechnician) branch before merging any changes.
+- Make sure your master branch is up to that with origin's master branch i.e. [this](https://github.com/vishalrao8/SmartServices) branch before merging any changes.
 - Commit and merge the changes with your master branch and do resolve merge conflicts if any.
 - Make a pull request to this master branch using IDE or browser (later one recommended).
 - Happy contributing :)
