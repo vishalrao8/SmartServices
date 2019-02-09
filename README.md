@@ -12,8 +12,11 @@ Of course it does, by reducing the resistance that one feels while finding any t
 ## Table of Contents
 
 [Intended User](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#intended-user)
+
 [Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)
+
 [UI]()
+
 [Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
 
 ## Intended User
