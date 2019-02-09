@@ -3,7 +3,7 @@ An app to connect freelancing technicians with their customers to develop a sour
 
 #### What does this app do?
 
-This app is to enhance the experience of users dealing with home services by providing variety of services. This app can provide employment to freelance technicians and ease of convenience to pick any service from a single app for users.
+This app is to enhance the experience of users dealing with home services by providing variety of services. This app can provide employment to technicians and ease of convenience to pick and request any service from an android device for users.
 
 #### Does it solve any problem?
 
