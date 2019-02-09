@@ -11,7 +11,7 @@ Of course it does, by reducing the resistance that one feels while finding any t
 
 #### Intended User
 
-This is very useful for students, family living in an area lacking the medium to call any technician for getting things fixed at home or offices and for technicians want to earn some money in exchange of service.
+This is very useful for students, family living in an area lacking the medium to call any technician for getting things fixed at home or offices and for technicians seeking to earn some money in exchange of service.
 
 ## Index
 
