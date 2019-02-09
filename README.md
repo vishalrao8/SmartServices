@@ -7,7 +7,7 @@ This app is to enhance the experience of users dealing with home services by pro
 
 #### Does it solve any problem?
 
-Of course it does, by reducing the resistance that one feels while finding any technician located farer or closer to them within a specific time period and providing real time location of worker coming to them to make it easy for users to track them.
+Of course it does, by reducing the resistance that one feels while finding any technician located farther or closer to them within a specific time period and providing real time location of worker coming to them to make it easy for users to track them.
 
 #### Intended User
 
