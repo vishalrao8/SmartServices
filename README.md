@@ -15,7 +15,9 @@ Of course it does, by reducing the resistance that one feels while finding any t
 
 [Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)
 
-[UI]()
+[UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)
+
+[User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)
 
 [Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
 
@@ -25,14 +27,24 @@ This is very useful for students, family living in an area lacking the medium to
 
 ## Features
 
-- App is written solely in the Java Programming Language
+- App is written solely in the Java Programming Language.
 - App keeps all strings in a strings.xml file and enables RTL layout switching on all layouts.
 - App includes support for accessibility. That includes content descriptions, navigation using a D-pad, and, if applicable, non-audio -versions of audio cues.
-- Stores mobile number and data given by user
-- Stores real time location for specific session
-- Allow one click login with OTP authentication
-- Shows real time location of technician to user
-- Have two every points, one for technician and other for user while login
+- Stores mobile number and data given by user.
+- Stores real time location for specific session.
+- Allow one click login with OTP authentication.
+- Shows real time location of technician to user.
+- Have two every points, one for technician and one for user at login.
+
+## UI
+
+<img src="https://drive.google.com/uc?export=view&id=1ig-tCs23PRryKs1siSsCKEi584ffoRHf" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1ooO8mRzPf2wpSWg9BZYfgdmsus_s8w4j" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kQ0CKsSV12-ypDKROK5ffy5mbcgkfLGw" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kAeidTXO0vgN-W_crMhfmBCaokp032_H" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1zaYzmu8bYAbZ4_0LTGt93Y3EPRhNUzKj" width="200">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=13tDOos8tVGkSGadGSPz3j1Mdo7qEZK8x" width="200">
+
+## User Flow
+
+<img src="https://drive.google.com/uc?export=view&id=1j1rAro_li7YSoGj5sWaiA12AEgafr8bU" width="800">
+
+<img src="https://drive.google.com/uc?export=view&id=1kRIgIvAYnG3WVW3464MDtqhTpzw7zLG6" width="800">
 
 ### Key Considerations
 
