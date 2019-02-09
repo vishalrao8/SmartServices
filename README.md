@@ -15,13 +15,15 @@ This is very useful for students, family living in an area lacking the medium to
 
 ## Table of Contents
 
-[Installation](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#installation)\
-[Usage](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#usage)\
-&nbsp; &nbsp; &nbsp;[User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)\
-[Technical Description](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#technical-description)\
-&nbsp; &nbsp; &nbsp;[Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)\
-&nbsp; &nbsp; &nbsp;[UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)\
-&nbsp; &nbsp; &nbsp;[Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
+- [Installation](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#installation)
+- [Usage](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#usage)
+  - [User Flow](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#user-flow)
+- [Contribution](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#contribution)
+- [Technical Description](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#technical-description)
+  - [Features](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#features)
+  - [UI](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#ui)
+  - [Key Considerations](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#key-considerations)
+- [Licence](https://github.com/vishalrao8/SmartTechnician/blob/master/README.md#licence)
 
 # Installation
 
@@ -32,8 +34,8 @@ This is very useful for students, family living in an area lacking the medium to
 
 - After installation, you can easily run the application by clicking on App icon in launcher menu.
 - On first screen, navigate further depending upon your requirement. First option is for normal users and second option is for trained tehnicians seeking to find people in need.
-- Authenticate yourself with an OTP sent to your mobile number (Speedup this process by allowing access to messages).
-- For users, Choose any type of service as per your reqirement and pick the appropriate location from map to where technician is expected to arrive.
+- Authenticate yourself with an OTP sent to your mobile number. Speed up the process by allowing access to messages.
+- For users, Choose any type of service as per your reqirement and pick the appropriate location from map to where the technician is expected to arrive.
 - For technicians, You will be navigated straight to a map where you will get real-time updates about requests raised nearby you (within a radius of 5 Kms). If there is any request shown on map, you can easily navigate to that user using Google Maps navigation after selecting user icon on map.
 
 ### User Flow
@@ -41,6 +43,18 @@ This is very useful for students, family living in an area lacking the medium to
 <img src="https://drive.google.com/uc?export=view&id=1j1rAro_li7YSoGj5sWaiA12AEgafr8bU" width="800">
 
 <img src="https://drive.google.com/uc?export=view&id=1kRIgIvAYnG3WVW3464MDtqhTpzw7zLG6" width="800">
+
+# Contribution
+
+- Fork this repo to make your own copy of repository, see it's there at the top right.
+- Either download the zip from your forked repo or import the project directly into Android Studio IDE using the setup wizard. Make sure you are importing project from you own copy of repository and not this.
+- Contact me at vishal.rao103@gmail.com to get a copy of google-services.json file which is supposed to be placed at root/app directory before building the project or else build process will fail.
+- Build the project using gradle and create a new branch with appropriate name with respect to the feature you are going to add.
+- Start making modifications with complete code comments and method documentations to make it easier for us humans to read.
+- Make sure your master branch is up to that with origin's master branch i.e. [this](https://github.com/vishalrao8/SmartTechnician) branch before merging any changes.
+- Commit and merge the changes with your master branch and do resolve merge conflicts if any.
+- Make a pull request to this master branch using IDE or browser (later one recommended).
+- Happy contributing :)
 
 # Technical Description
 
