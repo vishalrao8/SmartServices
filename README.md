@@ -27,7 +27,7 @@ This is very useful for students, family living in an area lacking the medium to
 
 # Installation
 
-- Grab the APK from [here](https://github.com/vishalrao8/SmartTechnician/blob/master/app/release/app-release.apk).
+- Grab the APK from [here](https://drive.google.com/open?id=18Jv7WIr-2q5bMmUfcp10c0rfNwq6uVUJ).
 - Enable installation from unknown sources in settings if asked during installation.
 
 # Usage
