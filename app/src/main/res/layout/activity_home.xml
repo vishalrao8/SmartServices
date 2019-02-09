@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.visha.smarttechnician.ui.user.HomeActivity"
+    tools:context="com.unitedcreation.visha.smartservices.ui.user.HomeActivity"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout

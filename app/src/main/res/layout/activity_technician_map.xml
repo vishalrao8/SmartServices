@@ -8,7 +8,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.visha.smarttechnician.ui.technician.TechnicianMapsActivity" />
+        tools:context="com.unitedcreation.visha.smartservices.ui.technician.TechnicianMapsActivity" />
 
     <Button
         android:id="@+id/button_technicianmap_startnagivation"
