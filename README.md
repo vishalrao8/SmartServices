@@ -32,7 +32,7 @@ This is very useful for students, family living in an area lacking the medium to
 
 # Usage
 
-- After installation, you can easily run the application by clicking on App icon in launcher menu.
+- After installation, you can easily run the application by clicking on the app icon in launcher menu.
 - On first screen, navigate further depending upon your requirement. First option is for normal users and second option is for trained tehnicians seeking to find people in need.
 - Authenticate yourself with an OTP sent to your mobile number. Speed up the process by allowing access to messages.
 - For users, Choose any type of service as per your reqirement and pick the appropriate location from map to where the technician is expected to arrive.
