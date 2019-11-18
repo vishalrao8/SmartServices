@@ -1,7 +1,6 @@
 package com.unitedcreation.visha.smartservices.ui.technician;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,12 +10,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.unitedcreation.visha.smartservices.R;
-import com.unitedcreation.visha.smartservices.model.Technician;
-import com.unitedcreation.visha.smartservices.utils.Utilities;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.unitedcreation.visha.smartservices.R;
+import com.unitedcreation.visha.smartservices.model.Technician;
+import com.unitedcreation.visha.smartservices.utils.Utilities;
 
 import static com.unitedcreation.visha.smartservices.utils.StringResourceProvider.CATEGORY;
 import static com.unitedcreation.visha.smartservices.utils.StringResourceProvider.TYPE;

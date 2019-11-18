@@ -4,7 +4,6 @@ import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.Slide;
 import android.view.View;
@@ -12,11 +11,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.unitedcreation.visha.smartservices.ui.technician.TechnicianMapsActivity;
-import com.unitedcreation.visha.smartservices.R;
-import com.unitedcreation.visha.smartservices.ui.technician.RegisterTechnicianActivity;
-import com.unitedcreation.visha.smartservices.ui.user.HomeActivity;
-import com.unitedcreation.visha.smartservices.ui.user.RegisterUserActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
@@ -26,6 +22,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.unitedcreation.visha.smartservices.R;
+import com.unitedcreation.visha.smartservices.ui.technician.RegisterTechnicianActivity;
+import com.unitedcreation.visha.smartservices.ui.technician.TechnicianMapsActivity;
+import com.unitedcreation.visha.smartservices.ui.user.HomeActivity;
+import com.unitedcreation.visha.smartservices.ui.user.RegisterUserActivity;
 
 import java.util.Collections;
 import java.util.List;

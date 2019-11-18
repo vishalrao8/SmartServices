@@ -5,11 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,9 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.unitedcreation.visha.smartservices.R;
-import com.unitedcreation.visha.smartservices.ui.MainActivity;
-import com.unitedcreation.visha.smartservices.utils.Utilities;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
@@ -52,6 +50,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.unitedcreation.visha.smartservices.R;
+import com.unitedcreation.visha.smartservices.ui.MainActivity;
+import com.unitedcreation.visha.smartservices.utils.Utilities;
 
 import static com.unitedcreation.visha.smartservices.utils.StringResourceProvider.CATEGORY;
 import static com.unitedcreation.visha.smartservices.utils.StringResourceProvider.MAPS_PACKAGE_ID;

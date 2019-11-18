@@ -3,12 +3,11 @@ package com.unitedcreation.visha.smartservices.ui.user;
 import android.app.Activity;
 import android.content.Intent;
 import android.location.Location;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.unitedcreation.visha.smartservices.ui.fragments.CategoryViewFragment;
-import com.unitedcreation.visha.smartservices.R;
+import androidx.fragment.app.FragmentActivity;
+
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
@@ -25,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.unitedcreation.visha.smartservices.R;
+import com.unitedcreation.visha.smartservices.ui.fragments.CategoryViewFragment;
 
 import static com.unitedcreation.visha.smartservices.ui.fragments.CategoryViewFragment.technicianLocationListener;
 import static com.unitedcreation.visha.smartservices.utils.StringResourceProvider.ACTIVE_REQUESTS;
