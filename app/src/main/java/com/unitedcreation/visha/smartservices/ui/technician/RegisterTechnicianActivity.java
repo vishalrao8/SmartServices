@@ -31,7 +31,7 @@ public class RegisterTechnicianActivity extends AppCompatActivity {
     private Spinner dropDown;
     private Button continueButton;
     private String category;
-    private final String[] items = getResources().getStringArray(R.array.services_name);
+    private String[] items;
     private ArrayAdapter<String> arrayAdapter;
 
     private FirebaseAuth mFireBaseAuth;
@@ -79,6 +79,8 @@ public class RegisterTechnicianActivity extends AppCompatActivity {
         mDatabaseReference = mFirebaseDatabase.getReference();
         mFireBaseAuth = FirebaseAuth.getInstance();
         userId = mFireBaseAuth.getCurrentUser().getUid();
+
+        items = getResources().getStringArray(R.array.services_name);
 
         dropDown = findViewById(R.id.spinner_registertechnician_choosecategory);
         arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,items);

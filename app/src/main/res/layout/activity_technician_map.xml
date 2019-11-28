@@ -1,4 +1,4 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         tools:context="com.unitedcreation.visha.smartservices.ui.technician.TechnicianMapsActivity" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_technicianmap_startnagivation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,4 +22,4 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:layout_gravity="bottom"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
