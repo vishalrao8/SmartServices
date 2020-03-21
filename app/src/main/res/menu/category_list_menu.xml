@@ -6,4 +6,8 @@
     <item android:title="@string/sign_out"
           android:id="@+id/signOut"
           android:orderInCategory="100"/>
+
+    <item android:title="@string/home_pay_now_menu"
+        android:id="@+id/payment"
+        android:orderInCategory="1"/>
 </menu>

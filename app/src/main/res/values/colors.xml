@@ -5,5 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#ffffff</color>
 
-    <color name="colorDivider">#0000001e</color>
+    <color name="colorTitleText">#000000</color>
+    <color name="colorPayNow">#90ffffff</color>
+    <color name="colorTopBarText">#95000000</color>
+    <color name="colorSubText">#50000000</color>
+    <color name="colorHint">#20000000</color>
+    <color name="colorGreyBackground">#10000000</color>
+    <color name="colorDivider">#12000000</color>
 </resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/iv_share_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:src="@drawable/share_ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_share_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/share_title"
+        android:textColor="@color/colorTopBarText"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_share_close"
+        app:layout_constraintStart_toEndOf="@+id/iv_share_close"
+        app:layout_constraintTop_toTopOf="@+id/iv_share_close" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:background="@color/colorDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_share_close" />
+
+    <TextView
+        android:id="@+id/tv_payment_sucess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/share_payment_successful"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="#6BD87C"
+        app:layout_constraintBottom_toTopOf="@+id/iv_share_illustration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <ImageView
+        android:id="@+id/iv_share_illustration"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/share_illus_share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.25"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_share_cashback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_cashback_title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_share_illustration"/>
+
+    <TextView
+        android:id="@+id/tv_share_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_info"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        app:layout_constraintStart_toStartOf="@id/tv_share_cashback"
+        app:layout_constraintTop_toBottomOf="@id/tv_share_cashback"
+        app:layout_constraintEnd_toEndOf="@id/tv_share_cashback"/>
+
+    <ImageButton
+        android:id="@+id/fab_share_whatsapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/share_ic_whatsapp"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        app:backgroundTint="@color/colorGreyBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fab_share_sms"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_share_info"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <ImageButton
+        android:id="@+id/fab_share_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:src="@drawable/share_ic_sms"
+        app:backgroundTint="@color/colorGreyBackground"
+        app:layout_constraintBottom_toBottomOf="@id/fab_share_whatsapp"
+        app:layout_constraintEnd_toStartOf="@+id/fab_share_gmail"
+        app:layout_constraintStart_toEndOf="@id/fab_share_whatsapp"
+        app:layout_constraintTop_toTopOf="@id/fab_share_whatsapp" />
+
+    <ImageButton
+        android:id="@+id/fab_share_gmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:src="@drawable/share_ic_gmail"
+        app:backgroundTint="@color/colorGreyBackground"
+        app:layout_constraintBottom_toBottomOf="@id/fab_share_sms"
+        app:layout_constraintEnd_toStartOf="@+id/fab_share_other"
+        app:layout_constraintStart_toEndOf="@id/fab_share_sms"
+        app:layout_constraintTop_toTopOf="@id/fab_share_sms" />
+
+    <ImageButton
+        android:id="@+id/fab_share_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:src="@drawable/share_ic_other"
+        app:backgroundTint="@color/colorGreyBackground"
+        app:layout_constraintBottom_toBottomOf="@id/fab_share_gmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fab_share_gmail"
+        app:layout_constraintTop_toTopOf="@id/fab_share_gmail" />
+
+    <TextView
+        android:id="@+id/tv_share_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorPrimary"
+        android:text="@string/share_t_c_apply"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

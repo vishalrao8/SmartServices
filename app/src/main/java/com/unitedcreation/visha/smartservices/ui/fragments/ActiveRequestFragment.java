@@ -24,7 +24,7 @@ import static com.unitedcreation.visha.smartservices.utils.StringResourceProvide
 
 public class ActiveRequestFragment extends ListFragment {
 
-    public static ArrayList<Integer> fragment2arrayList=new ArrayList<>();
+    public static ArrayList<Integer> fragment2arrayList = new ArrayList<>();
     public static ArrayAdapter fragment2ArrayAdapter;
 
     @Override
@@ -34,15 +34,15 @@ public class ActiveRequestFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_active_request,container,false);
+        return inflater.inflate(R.layout.fragment_active_request, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ListView listView=getListView();
-        fragment2ArrayAdapter=new ActiveRequestAdapter(getActivity(),R.layout.item_active_request,fragment2arrayList);
+        ListView listView = getListView();
+        fragment2ArrayAdapter = new ActiveRequestAdapter(getActivity(), R.layout.item_active_request, fragment2arrayList);
         listView.setAdapter(fragment2ArrayAdapter);
 
     }
@@ -51,12 +51,11 @@ public class ActiveRequestFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        if(CategoryViewFragment.technicianAccepted){
+        if (CategoryViewFragment.technicianAccepted) {
 
             UserMapsUI(CategoryViewFragment.technicianUserId, CategoryViewFragment.category);
 
-        }
-        else{
+        } else {
 
             Toast.makeText(getActivity(), getString(R.string.home_force_request_touch_warning), Toast.LENGTH_LONG).show();
 
@@ -64,11 +63,11 @@ public class ActiveRequestFragment extends ListFragment {
 
     }
 
-    public void UserMapsUI(String id, String category){
+    public void UserMapsUI(String id, String category) {
 
-        Intent intent=new Intent(getActivity(),UserMapActivity.class);
-        intent.putExtra(TECHNICIAN_USER_ID,id);
-        intent.putExtra(CATEGORY,category);
+        Intent intent = new Intent(getActivity(), UserMapActivity.class);
+        intent.putExtra(TECHNICIAN_USER_ID, id);
+        intent.putExtra(CATEGORY, category);
         startActivity(intent);
 
     }

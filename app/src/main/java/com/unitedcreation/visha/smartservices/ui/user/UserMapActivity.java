@@ -3,7 +3,9 @@ package com.unitedcreation.visha.smartservices.ui.user;
 import android.app.Activity;
 import android.content.Intent;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
@@ -52,23 +54,23 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
     private DatabaseReference mDatabaseReference;
     private FirebaseAuth mFireBaseAuth;
     private String userId;
-    private Boolean technicianArrived=false;
-    private Boolean listenerAdded=false;
+    private Boolean technicianArrived = false;
+    private Boolean listenerAdded = false;
 
     public static Activity activity;
 
-    public void backToServiceBoard(){
+    public void backToServiceBoard() {
 
-        Intent intent=new Intent(this,HomeActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
 
     }
 
-    public void resetUserUI(){
+    public void resetUserUI() {
 
         Toast.makeText(UserMapActivity.this, R.string.usermap_technician_arrived_info, Toast.LENGTH_LONG).show();
-        if(geoQuery!=null)
+        if (geoQuery != null)
             geoQuery.removeAllListeners();
         mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).removeEventListener(technicianLocationListener);
         mDatabaseReference.child(TECHNICIAN_ACCEPTED).child(userId).removeValue();
@@ -77,30 +79,30 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
 
     }
 
-    public float calculateDistanceLeft(GeoLocation techGeoLocation,LatLng userLatLng){
+    public float calculateDistanceLeft(GeoLocation techGeoLocation, LatLng userLatLng) {
 
-        Location techLocation=new Location(LOCATION_SERVICE);
-        Location userLocation=new Location(LOCATION_SERVICE);
+        Location techLocation = new Location(LOCATION_SERVICE);
+        Location userLocation = new Location(LOCATION_SERVICE);
         techLocation.setLongitude(techGeoLocation.longitude);
         techLocation.setLatitude(techGeoLocation.latitude);
         userLocation.setLatitude(userLatLng.latitude);
         userLocation.setLongitude(userLatLng.longitude);
-        float distance =  userLocation.distanceTo(techLocation);
+        float distance = userLocation.distanceTo(techLocation);
         return (float) ((Math.round(distance * 10)) / 10);
 
     }
 
-    public void removeRequest(){
+    public void removeRequest() {
 
         mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).removeValue(new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
-                if(databaseError==null){
+                if (databaseError == null) {
 
-                    geoFire=new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
+                    geoFire = new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
                     geoFire.removeLocation(userId);
-                    CategoryViewFragment.requestActive=false;
+                    CategoryViewFragment.requestActive = false;
                     CategoryViewFragment.removeActiveRequest();
 
                 }
@@ -110,18 +112,18 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
     }
 
 
-    public void UpdateMap(GeoLocation techGeoLocation){
+    public void UpdateMap(GeoLocation techGeoLocation) {
 
         mMap.clear();
         mMap.addMarker(new MarkerOptions().position(latLng).title(getString(R.string.usermap_marker_header)));
-        LatLng techLatLng = new LatLng(techGeoLocation.latitude,techGeoLocation.longitude);
+        LatLng techLatLng = new LatLng(techGeoLocation.latitude, techGeoLocation.longitude);
         mMap.addMarker(new MarkerOptions()
                 .position(techLatLng)
                 .title(getString(R.string.usermap_tech_marker_header))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-        if(calculateDistanceLeft(techGeoLocation,latLng)<10 && !technicianArrived){
+        if (calculateDistanceLeft(techGeoLocation, latLng) < 10 && !technicianArrived) {
 
-            technicianArrived=true;
+            technicianArrived = true;
             resetUserUI();
 
         }
@@ -133,26 +135,26 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_map);
 
-        mFirebaseDatabase=FirebaseDatabase.getInstance();
-        mDatabaseReference=mFirebaseDatabase.getReference();
-        mFireBaseAuth=FirebaseAuth.getInstance();
-        userId=mFireBaseAuth.getCurrentUser().getUid();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference();
+        mFireBaseAuth = FirebaseAuth.getInstance();
+        userId = mFireBaseAuth.getCurrentUser().getUid();
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        geoQueryEventListener=new GeoQueryEventListener() {
+        geoQueryEventListener = new GeoQueryEventListener() {
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
-                if(key.equals(technicianUserId)) {
+                if (key.equals(technicianUserId)) {
 
-                    LatLngBounds.Builder builder=new LatLngBounds.Builder();
-                    builder.include(new LatLng(location.latitude,location.longitude));
+                    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                    builder.include(new LatLng(location.latitude, location.longitude));
                     builder.include(latLng);
-                    bounds=builder.build();
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds,100));
+                    bounds = builder.build();
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
                     mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(location.latitude, location.longitude))
                             .title(getString(R.string.usermap_tech_marker_header))
@@ -168,7 +170,7 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
 
             @Override
             public void onKeyMoved(String key, GeoLocation location) {
-                if(key.equals(technicianUserId)) {
+                if (key.equals(technicianUserId)) {
 
                     UpdateMap(location);
 
@@ -192,10 +194,10 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         technicianUserId = intent.getStringExtra(TECHNICIAN_USER_ID);
         category = intent.getStringExtra(CATEGORY);
 
-        latLng = new LatLng(CategoryViewFragment.requestedLocation.latitude,CategoryViewFragment.requestedLocation.longitude);
+        latLng = new LatLng(CategoryViewFragment.requestedLocation.latitude, CategoryViewFragment.requestedLocation.longitude);
 
         geoFire = new GeoFire(mDatabaseReference.child(TECHNICIAN_LOCATIONS).child(category));
-        geoQuery = geoFire.queryAtLocation(CategoryViewFragment.requestedLocation,5);
+        geoQuery = geoFire.queryAtLocation(CategoryViewFragment.requestedLocation, 5);
         geoQuery.addGeoQueryEventListener(geoQueryEventListener);
         listenerAdded = true;
 
@@ -215,13 +217,13 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         mMap = googleMap;
         mMap.getUiSettings().setMapToolbarEnabled(false);
         mMap.addMarker(new MarkerOptions().position(latLng).title(getString(R.string.usermap_marker_header)));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
     }
 
     @Override
     protected void onPause() {
 
-        if(geoQuery != null)
+        if (geoQuery != null)
             geoQuery.removeAllListeners();
         super.onPause();
     }
@@ -229,9 +231,17 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
     @Override
     protected void onResume() {
 
-        if(!listenerAdded)
+        if (!listenerAdded)
             geoQuery.addGeoQueryEventListener(geoQueryEventListener);
 
         super.onResume();
+    }
+
+    public void onCallButtonTapped(View view) {
+        {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:0123456789"));
+            startActivity(intent);
+        }
     }
 }

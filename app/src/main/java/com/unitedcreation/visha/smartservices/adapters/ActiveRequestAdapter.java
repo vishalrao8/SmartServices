@@ -63,6 +63,38 @@ public class ActiveRequestAdapter extends ArrayAdapter {
                 textView.setText(view.getResources().getString(R.string.portable_devices));
                 imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.computer));
                 break;
+            case 5:
+                textView.setText(view.getResources().getString(R.string.washing_machine));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.washing_machine));
+                break;
+            case 6:
+                textView.setText(view.getResources().getString(R.string.refrigerator));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.refrigerator));
+                break;
+            case 7:
+                textView.setText(view.getResources().getString(R.string.cctv));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.cctv));
+                break;
+            case 8:
+                textView.setText(view.getResources().getString(R.string.television));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.television));
+                break;
+            case 9:
+                textView.setText(view.getResources().getString(R.string.printer));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.printer));
+                break;
+            case 10:
+                textView.setText(view.getResources().getString(R.string.gardening));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.gardering));
+                break;
+            case 11:
+                textView.setText(view.getResources().getString(R.string.car_wash));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.car_wash));
+                break;
+            case 12:
+                textView.setText(view.getResources().getString(R.string.air_conditioner));
+                imageView.setImageDrawable(view.getResources().getDrawable(R.drawable.air_conditioner));
+                break;
         }
         return view;
     }

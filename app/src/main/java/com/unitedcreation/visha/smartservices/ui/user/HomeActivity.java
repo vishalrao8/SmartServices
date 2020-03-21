@@ -39,6 +39,7 @@ import com.unitedcreation.visha.smartservices.utils.Utilities;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static com.unitedcreation.visha.smartservices.ui.fragments.CategoryViewFragment.buttonShowed;
 import static com.unitedcreation.visha.smartservices.ui.fragments.CategoryViewFragment.category;
@@ -83,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Toolbar toolbar= findViewById(R.id.toolbar_home_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.home_toolbar_title);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.home_toolbar_title);
 
         TabLayout tabLayout= findViewById(R.id.tablayout_home_tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -178,24 +179,20 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.category_list_menu,menu);
+        menuInflater.inflate(R.menu.category_list_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.signOut :
-                AuthUI.getInstance()
-                        .signOut(this)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                back2Home();
-                            }
-                        });
-
+        if (item.getItemId() == R.id.signOut) {
+            AuthUI.getInstance()
+                    .signOut(this)
+                    .addOnCompleteListener(task -> back2Home());
+        }
+        if (item.getItemId() == R.id.payment) {
+            Intent intent = new Intent(this, PaymentActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

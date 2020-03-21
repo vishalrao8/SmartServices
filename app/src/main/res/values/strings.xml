@@ -20,6 +20,7 @@
     <string name="home_tab_two_title">Active requests</string>
     <string name="home_tab_three_title">History</string>
     <string name="home_toolbar_title">ServiceBoard</string>
+    <string name="home_pay_now_menu">Pay Now</string>
 
     <!-- CategoryViewFragment -->
     <string name="item_content_description">Image of service category selected</string>
@@ -37,6 +38,8 @@
     <string name="usermap_technician_arrived_info">Technician has arrived :)</string>
     <string name="usermap_marker_header">Requested position</string>
     <string name="usermap_tech_marker_header">Technician</string>
+    <string name="usermap_call">Call Technician</string>
+
 
     <!-- RegisterTechnicianActivity string resources -->
     <string name="regtech_invalid_name_warning">Please enter a valid name</string>
@@ -63,12 +66,34 @@
     <string name="carpenter">Carpenter</string>
     <string name="painter">Painter</string>
     <string name="portable_devices">Portable Devices</string>
+    <string name="washing_machine">Washing Machine</string>
+    <string name="refrigerator">Refrigerator</string>
+    <string name="cctv">CCTV</string>
+    <string name="television">Television</string>
+    <string name="printer">Printer</string>
+    <string name="gardening">Gardening</string>
+    <string name="car_wash">Car Wash</string>
+    <string name="air_conditioner">Air Conditioner</string>
 
-    
+
     <!-- Widget string resources -->
     <string name="widget_user_logged_out_message">Please Authenticate as an User to continue!</string>
     <string name="configure">Configure</string>
     <string name="add_widget">Add widget</string>
     <string name="widget_choose_service">Choose a Service</string>
+
+    <!-- PaymentActivity -->
+    <string name="offline_payment">Scan QR code for Offline Payment</string>
+    <string name="payment_new_card">Add new card</string>
+    <string name="payment_share_description">To get exclusive discount</string>
+    <string name="payment_share">Share Now</string>
+    <string name="payment_know_more"><u>Know More</u></string>
+
+    <!-- ShareActivity -->
+    <string name="share_title">Share</string>
+    <string name="share_cashback_title">Get up to 50% cashback</string>
+    <string name="share_info">On every download by your referral</string>
+    <string name="share_t_c_apply"><u>T&amp;C Apply</u></string>
+    <string name="share_payment_successful">Payment Successful</string>
 
 </resources>

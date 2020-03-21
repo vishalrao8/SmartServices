@@ -7,15 +7,24 @@
         <item>@drawable/carpenter</item>
         <item>@drawable/painter</item>
         <item>@drawable/computer</item>
+        <item>@drawable/washing_machine</item>
+        <item>@drawable/refrigerator</item>
+        <item>@drawable/cctv</item>
+        <item>@drawable/television</item>
+        <item>@drawable/printer</item>
+        <item>@drawable/gardering</item>
+        <item>@drawable/car_wash</item>
+        <item>@drawable/air_conditioner</item>
     </array>
 
-    <array name="service_drawable_resources">
-        <item>R.drawable.electrician</item>
-        <item>R.drawable.plumber</item>
-        <item>R.drawable.carpenter</item>
-        <item>R.drawable.painter</item>
-        <item>R.drawable.computer</item>
-    </array>
+<!--    <array name="service_drawable_resources">-->
+<!--        <item>R.drawable.electrician</item>-->
+<!--        <item>R.drawable.plumber</item>-->
+<!--        <item>R.drawable.carpenter</item>-->
+<!--        <item>R.drawable.painter</item>-->
+<!--        <item>R.drawable.computer</item>-->
+<!--        <item>R.drawable.washing</item>-->
+<!--    </array>-->
 
     <string-array name="services_name">
         <item>Electrician</item>
@@ -23,6 +32,14 @@
         <item>Carpenter</item>
         <item>Painter</item>
         <item>Portable Devices</item>
+        <item>Washing Machine</item>
+        <item>Refrigerator</item>
+        <item>CCTV</item>
+        <item>Television</item>
+        <item>Printer</item>
+        <item>Gardening</item>
+        <item>Car Wash</item>
+        <item>Air Conditioning</item>
     </string-array>
 
 </resources>

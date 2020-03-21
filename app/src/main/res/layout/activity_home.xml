@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar_home_bar"
             app:titleTextColor="@color/colorWhite"
-            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout_home_tabs"

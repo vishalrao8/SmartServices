@@ -39,6 +39,7 @@ import com.unitedcreation.visha.smartservices.utils.Utilities;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 import static com.unitedcreation.visha.smartservices.utils.StringResourceProvider.ACTIVE_REQUESTS;
@@ -89,10 +90,10 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
         technicianLocationListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
+                if (dataSnapshot.exists()) {
 
                     //technician has accepted.
-                    if(!technicianAccepted) {
+                    if (!technicianAccepted) {
 
                         HashMap<String, String> hashMap = (HashMap) dataSnapshot.getValue();
                         for (String key : hashMap.keySet()) {
@@ -108,11 +109,11 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
                 } else {
 
                     //technician rejected the navigation.
-                    if(technicianAccepted) {
+                    if (technicianAccepted) {
 
                         Toast.makeText(getActivity(), getString(R.string.home_technician_rejected_info), Toast.LENGTH_LONG).show();
-                        technicianAccepted=false;
-                        if(UserMapActivity.geoQuery!=null)
+                        technicianAccepted = false;
+                        if (UserMapActivity.geoQuery != null)
                             UserMapActivity.geoQuery.removeAllListeners();
                         UserMapActivity.activity.finish();
 
@@ -126,7 +127,7 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
             }
         };
 
-        if(!requestActive) {
+        if (!requestActive) {
 
             new checkIfRequestActive().execute();
 
@@ -136,12 +137,12 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_category_view, container,false);
-        CategoryViewAdapter adapter = new CategoryViewAdapter(getActivity(), this);
+        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_category_view, container, false);
+        CategoryViewAdapter adapter = new CategoryViewAdapter(Objects.requireNonNull(getActivity()), this);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
         return recyclerView;
 
@@ -150,12 +151,12 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(requestCode == 1) {
+        if (requestCode == 1) {
 
-            if(resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
 
                 Place place = PlacePicker.getPlace(data, getActivity());
-                raiseRequest (place);
+                raiseRequest(place);
 
             }
         }
@@ -187,9 +188,9 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
         }
     }
 
-    public void showButton(){
+    public void showButton() {
 
-        if(!buttonShowed) {
+        if (!buttonShowed) {
 
             cancelButton.animate().translationYBy(-Utilities.pixels(getActivity())).setDuration(500);
             buttonShowed = true;
@@ -197,26 +198,26 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
         }
     }
 
-    public void showActiveRequests(){
+    public void showActiveRequests() {
 
         ActiveRequestFragment.fragment2arrayList.add(categoryList.indexOf(category));
         ActiveRequestFragment.fragment2ArrayAdapter.notifyDataSetChanged();
 
     }
 
-    public static void removeActiveRequest(){
+    public static void removeActiveRequest() {
 
         ActiveRequestFragment.fragment2arrayList.clear();
         ActiveRequestFragment.fragment2ArrayAdapter.notifyDataSetChanged();
 
     }
 
-    public void checkIfRequestIsActive(){
+    public void checkIfRequestIsActive() {
 
         mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
 
                     category = (String) dataSnapshot.getValue();
                     Log.i(CATEGORY, category);
@@ -252,7 +253,7 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
 
     public void UserMapsUI(String id, String category) {
 
-        Intent intent = new Intent(getActivity(),UserMapActivity.class);
+        Intent intent = new Intent(getActivity(), UserMapActivity.class);
         intent.putExtra(TECHNICIAN_USER_ID, id);
         intent.putExtra(CATEGORY, category);
         startActivity(intent);
@@ -267,12 +268,12 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
 
     public void raiseRequest(Place place) {
 
-        requestedLocation = new GeoLocation(place.getLatLng().latitude,place.getLatLng().longitude);
+        requestedLocation = new GeoLocation(place.getLatLng().latitude, place.getLatLng().longitude);
         mDatabaseReference.child(ACTIVE_REQUESTS).child(userId).setValue(category, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
 
-                if(databaseError == null) {
+                if (databaseError == null) {
 
                     geoFire = new GeoFire(mDatabaseReference.child(USER_LOCATIONS).child(category));
                     geoFire.setLocation(userId, requestedLocation, new GeoFire.CompletionListener() {
@@ -284,7 +285,7 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
                     Toast.makeText(getActivity(), getString(R.string.home_request_raised_info), Toast.LENGTH_SHORT).show();
                     requestActive = true;
                     showButton();
-                    viewPager.setCurrentItem(1,true);
+                    viewPager.setCurrentItem(1, true);
                     showActiveRequests();
                     checkIfTechnicianIsComing();
 
@@ -298,7 +299,7 @@ public class CategoryViewFragment extends Fragment implements CategoryViewAdapte
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class checkIfRequestActive extends android.os.AsyncTask <Void, Void, Void> {
+    public class checkIfRequestActive extends android.os.AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {

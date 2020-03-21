@@ -15,9 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.unitedcreation.visha.smartservices.R;
 
-public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapter.ViewHolder>{
-
-    private static final int LENGTH = 5;
+public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapter.ViewHolder> {
 
     private final String[] serviceName;
     private final Drawable[] serviceImages;
@@ -32,7 +30,7 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
 
     public CategoryViewAdapter(Context context, onCategoryClickedInterface onCategoryClickedInterface) {
 
-        Resources resources=context.getResources();
+        Resources resources = context.getResources();
 
         mOnCategoryClickedInterface = onCategoryClickedInterface;
 
@@ -40,7 +38,7 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
         TypedArray a = resources.obtainTypedArray(R.array.service_images);
         serviceImages = new Drawable[a.length()];
 
-        for (int i = 0; i < a.length(); i++){
+        for (int i = 0; i < a.length(); i++) {
 
             serviceImages[i] = a.getDrawable(i);
 
@@ -49,12 +47,11 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
     }
 
 
-
     @NonNull
     @Override
     public CategoryViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate( R.layout.item_category_view, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category_view, parent, false);
         return new ViewHolder(view);
 
     }
@@ -68,15 +65,15 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
 
     @Override
     public int getItemCount() {
-        return LENGTH;
+        return serviceName.length;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView imageView;
         public TextView textView;
 
-        public ViewHolder(View view){
+        public ViewHolder(View view) {
 
             super(view);
 

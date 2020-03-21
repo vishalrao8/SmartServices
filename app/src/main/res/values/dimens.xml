@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <dimen name="margin_default">16dp</dimen>
-
     <!-- CategoryFragment dimen resources -->
+    <dimen name="margin_default">16dp</dimen>
 
     <dimen name="width_item_cardview_344dp">344dp</dimen>
     <dimen name="margin_item_cardview_8dp">8dp</dimen>
     <dimen name="padding_item_textview_4dp">4dp</dimen>
+
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="default_margin_half">8dp</dimen>
+    <dimen name="margin_registration_card_view">32dp</dimen>
+    <dimen name="margin_registration_edit_text">12dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!--/ CategoryFragment dimen resources -->
 

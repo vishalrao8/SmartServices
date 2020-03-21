@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.unitedcreation.visha.smartservices">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -18,15 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".ui.user.ShareActivity"></activity>
+        <activity android:name=".ui.user.PaymentActivity" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
         <activity
-            android:name="com.unitedcreation.visha.smartservices.ui.user.HomeActivity"
+            android:name=".ui.user.HomeActivity"
             android:theme="@style/FullScreenTheme" />
-        <activity android:name="com.unitedcreation.visha.smartservices.ui.user.RegisterUserActivity" />
-        <activity android:name="com.unitedcreation.visha.smartservices.ui.MainActivity">
+        <activity android:name=".ui.user.RegisterUserActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,17 +48,18 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.unitedcreation.visha.smartservices.ui.technician.TechnicianMapsActivity"
+            android:name=".ui.technician.TechnicianMapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name="com.unitedcreation.visha.smartservices.ui.technician.RegisterTechnicianActivity" />
+        <activity android:name=".ui.technician.RegisterTechnicianActivity" />
         <activity
-            android:name="com.unitedcreation.visha.smartservices.ui.user.UserMapActivity"
+            android:name=".ui.user.UserMapActivity"
             android:label="@string/title_activity_users_map" />
 
-        <service android:name="com.unitedcreation.visha.smartservices.service.UserAppWidgetService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service
+            android:name=".service.UserAppWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name="com.unitedcreation.visha.smartservices.widget.UserAppWidget">
+        <receiver android:name=".widget.UserAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -66,7 +69,7 @@
                 android:resource="@xml/user_app_widget_info" />
         </receiver>
 
-        <activity android:name="com.unitedcreation.visha.smartservices.widget.UserAppWidgetConfigureActivity">
+        <activity android:name=".widget.UserAppWidgetConfigureActivity">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
