@@ -33,9 +33,9 @@ This is very useful for students, family living in an area lacking the medium to
 
 ### User Flow
 
-<img src="https://drive.google.com/file/d/1cxNZb7YvOaTMGQJGWFqJyLX3AKTQOC8R/view" width="800">
+<img src="https://drive.google.com/file/d/1cxNZb7YvOaTMGQJGWFqJyLX3AKTQOC8R/view" width="800" />
 
-<img src="https://drive.google.com/file/d/1_YBLfJNxp5FcpPcIR9A1fs8iDOY_T0ua/view" width="800">
+<img src="https://drive.google.com/file/d/1_YBLfJNxp5FcpPcIR9A1fs8iDOY_T0ua/view" width="800" />
 
 # Contribution
 
