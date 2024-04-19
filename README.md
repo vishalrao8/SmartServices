@@ -25,11 +25,6 @@ This is very useful for students, family living in an area lacking the medium to
   - [Key Considerations](https://github.com/vishalrao8/SmartTechnician#key-considerations)
 - [Licence](https://github.com/vishalrao8/SmartTechnician#licence)
 
-# Installation
-
-- Grab the APK from [here](https://drive.google.com/open?id=18Jv7WIr-2q5bMmUfcp10c0rfNwq6uVUJ).
-- Enable installation from unknown sources in settings if asked during installation.
-
 # Usage
 
 - After installation, you can easily run the application by clicking on the app icon in the launcher menu.
@@ -40,19 +35,18 @@ This is very useful for students, family living in an area lacking the medium to
 
 ### User Flow
 
-<img src="https://drive.google.com/uc?export=view&id=1j1rAro_li7YSoGj5sWaiA12AEgafr8bU" width="800">
+<img src="https://drive.google.com/file/d/1cxNZb7YvOaTMGQJGWFqJyLX3AKTQOC8R/view?usp=drive_link" width="800">
 
-<img src="https://drive.google.com/uc?export=view&id=1kRIgIvAYnG3WVW3464MDtqhTpzw7zLG6" width="800">
+<img src="https://drive.google.com/file/d/1_YBLfJNxp5FcpPcIR9A1fs8iDOY_T0ua/view?usp=sharing" width="800">
 
 # Contribution
 
 - Fork this repo to make your own copy of repository, see it's there at the top right.
-- Either download the zip from your forked repo or check out project from VCS using Android Studio startup wizard. Make sure you are importing project from you own copy of repository and not this.
-- Contact me at vishal.rao103@gmail.com to get a copy of google-services.json file which is supposed to be placed at root/app directory before building the project or else build process will fail.
+- Either download the zip from your forked repo or check out project from VCS using Android Studio. Make sure you are importing project from your forked repository.
+- Create a firebase project and download google-services.json file.
 - Build the project using gradle and create a new branch with appropriate name with respect to the feature you are going to add.
-- Start making modifications with complete code comments and method documentations to make it easier for us humans to read.
-- Make sure your master branch is up to that with origin's master branch i.e. [this](https://github.com/vishalrao8/SmartServices) branch before merging any changes.
-- Commit and merge the changes with your master branch and do resolve merge conflicts if any.
+- Start making modifications with complete code comments and method documentations to make it easier for humans to read.
+- Make sure your master branch is up to that with origin's master branch i.e. [this](https://github.com/vishalrao8/SmartServices) before raising any PRs.
 - Make a pull request to this master branch using IDE or browser (later one recommended).
 - Happy contributing :)
 
@@ -67,11 +61,6 @@ This is very useful for students, family living in an area lacking the medium to
 - Stores real time location for specific session.
 - Allow one click login with OTP authentication.
 - Shows real time location of technician to user.
-- Have two every points, one for technician and one for user at login.
-
-### UI
-
-<img src="https://drive.google.com/uc?export=view&id=1ig-tCs23PRryKs1siSsCKEi584ffoRHf" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1ooO8mRzPf2wpSWg9BZYfgdmsus_s8w4j" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kQ0CKsSV12-ypDKROK5ffy5mbcgkfLGw" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1kAeidTXO0vgN-W_crMhfmBCaokp032_H" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=1zaYzmu8bYAbZ4_0LTGt93Y3EPRhNUzKj" width="150">&nbsp; &nbsp; &nbsp;<img src="https://drive.google.com/uc?export=view&id=13tDOos8tVGkSGadGSPz3j1Mdo7qEZK8x" width="150">
 
 ### Key Considerations
 
