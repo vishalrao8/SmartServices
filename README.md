@@ -1,4 +1,4 @@
-# SmartServices
+# Smart Services
 An app to connect freelancing technicians with their customers to develop a source of income for them.
 
 #### What does this app do?
@@ -15,15 +15,13 @@ This is very useful for students, family living in an area lacking the medium to
 
 # Index
 
-- [Installation](https://github.com/vishalrao8/SmartTechnician#installation)
-- [Usage](https://github.com/vishalrao8/SmartTechnician#usage)
-  - [User Flow](https://github.com/vishalrao8/SmartTechnician#user-flow)
-- [Contribution](https://github.com/vishalrao8/SmartTechnician#contribution)
-- [Technical Details](https://github.com/vishalrao8/SmartTechnician#technical-details)
-  - [Features](https://github.com/vishalrao8/SmartTechnician#features)
-  - [UI](https://github.com/vishalrao8/SmartTechniciand#ui)
-  - [Key Considerations](https://github.com/vishalrao8/SmartTechnician#key-considerations)
-- [Licence](https://github.com/vishalrao8/SmartTechnician#licence)
+- [Usage](https://github.com/vishalrao8/SmartServices?tab=readme-ov-file#usage)
+  - [User Flow](https://github.com/vishalrao8/SmartServices?tab=readme-ov-file#user-flow)
+- [Contribution](https://github.com/vishalrao8/SmartServices?tab=readme-ov-file#contribution)
+- [Technical Details](https://github.com/vishalrao8/SmartServices?tab=readme-ov-file#technical-details)
+  - [Features](https://github.com/vishalrao8/SmartServices?tab=readme-ov-file#features)
+  - [Key Considerations](https://github.com/vishalrao8/SmartServices?tab=readme-ov-file#key-considerations)
+- [Licence](https://github.com/vishalrao8/SmartServices?tab=readme-ov-file#licence)
 
 # Usage
 
@@ -35,9 +33,9 @@ This is very useful for students, family living in an area lacking the medium to
 
 ### User Flow
 
-<img src="https://drive.google.com/file/d/1cxNZb7YvOaTMGQJGWFqJyLX3AKTQOC8R/view?usp=drive_link" width="800">
+<img src="https://drive.google.com/file/d/1cxNZb7YvOaTMGQJGWFqJyLX3AKTQOC8R/view" width="800">
 
-<img src="https://drive.google.com/file/d/1_YBLfJNxp5FcpPcIR9A1fs8iDOY_T0ua/view?usp=sharing" width="800">
+<img src="https://drive.google.com/file/d/1_YBLfJNxp5FcpPcIR9A1fs8iDOY_T0ua/view" width="800">
 
 # Contribution
 
