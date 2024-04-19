@@ -33,9 +33,9 @@ This is very useful for students, family living in an area lacking the medium to
 
 ### User Flow
 
-<img src="images/user_flow.png" width="800" />
+<img src="images/user_flow.jpg" width="800" />
 
-<img src="images/technician_flow.png" width="800" />
+<img src="images/technician_flow.jpg" width="800" />
 
 # Contribution
 
